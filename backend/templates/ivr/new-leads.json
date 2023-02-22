@@ -1,0 +1,338 @@
+{
+  "description": "New Leads",
+  "states": [
+    {
+      "name": "Trigger",
+      "type": "trigger",
+      "transitions": [
+        {
+          "event": "incomingMessage"
+        },
+        {
+          "next": "WelcomeMsg",
+          "event": "incomingCall"
+        },
+        {
+          "event": "incomingConversationMessage"
+        },
+        {
+          "event": "incomingRequest"
+        },
+        {
+          "event": "incomingParent"
+        }
+      ],
+      "properties": {
+        "offset": {
+          "x": -620,
+          "y": -40
+        }
+      }
+    },
+    {
+      "name": "WelcomeMsg",
+      "type": "say-play",
+      "transitions": [
+        {
+          "next": "GetZipcode",
+          "event": "audioComplete"
+        }
+      ],
+      "properties": {
+        "offset": {
+          "x": -500,
+          "y": 140
+        },
+        "loop": 1,
+        "say": "Welcome to painter bros"
+      }
+    },
+    {
+      "name": "GetZipcode",
+      "type": "gather-input-on-call",
+      "transitions": [
+        {
+          "next": "ResetRetryCount",
+          "event": "keypress"
+        },
+        {
+          "event": "speech"
+        },
+        {
+          "next": "SetRetryCount",
+          "event": "timeout"
+        }
+      ],
+      "properties": {
+        "speech_timeout": "auto",
+        "offset": {
+          "x": -500,
+          "y": 350
+        },
+        "loop": 1,
+        "finish_on_key": "#",
+        "say": "Please enter your zip code to connect your call to nearest franchise.",
+        "stop_gather": true,
+        "gather_language": "en",
+        "profanity_filter": "true",
+        "timeout": 5
+      }
+    },
+    {
+      "name": "IsValidZipcode",
+      "type": "split-based-on",
+      "transitions": [
+        {
+          "next": "SetRetryCount_IsValidZipcode",
+          "event": "noMatch"
+        },
+        {
+          "next": "ResetRetryCount_IsValidZipcode",
+          "event": "match",
+          "conditions": [
+            {
+              "friendly_name": "If value equal_to 1",
+              "arguments": [
+                "{{widgets.CheckZipCode.parsed.is_valid_zipcode}}"
+              ],
+              "type": "equal_to",
+              "value": "true"
+            }
+          ]
+        }
+      ],
+      "properties": {
+        "input": "{{widgets.CheckZipCode.parsed.is_valid_zipcode}}",
+        "offset": {
+          "x": -500,
+          "y": 1050
+        }
+      }
+    },
+    {
+      "name": "NotValidZipcodePrompt",
+      "type": "say-play",
+      "transitions": [
+        {
+          "next": "GetZipcode",
+          "event": "audioComplete"
+        }
+      ],
+      "properties": {
+        "offset": {
+          "x": -970,
+          "y": 530
+        },
+        "loop": 1,
+        "say": "You have not entered valid zipcode. Please try again."
+      }
+    },
+    {
+      "name": "CheckZipCode",
+      "type": "make-http-request",
+      "transitions": [
+        {
+          "next": "IsValidZipcode",
+          "event": "success"
+        },
+        {
+          "event": "failed"
+        }
+      ],
+      "properties": {
+        "offset": {
+          "x": -490,
+          "y": 860
+        },
+        "method": "POST",
+        "content_type": "application/json;charset=utf-8",
+        "body": "{\"zipcode\": \"{{widgets.GetZipcode.Digits}}\", \"from_\": \"{{trigger.call.From}}\", \"no_input_retry_count\": \"{{flow.variables.retry_count}}\", \"invalid_zipcode_retry_count\": \"{{flow.variables.retry_count_zipcode}}\"}",
+        "url": "{{BASE_URL}}/api/ivr/check-zipcode"
+      }
+    },
+    {
+      "name": "SetRetryCount",
+      "type": "set-variables",
+      "transitions": [
+        {
+          "next": "CheckRetryCount",
+          "event": "next"
+        }
+      ],
+      "properties": {
+        "variables": [
+          {
+            "value": "{% if flow.variables.retry_count %} {{flow.variables.retry_count | plus: 1}} {% else %} 1 {% endif %}",
+            "key": "retry_count"
+          }
+        ],
+        "offset": {
+          "x": -70,
+          "y": 400
+        }
+      }
+    },
+    {
+      "name": "CheckRetryCount",
+      "type": "split-based-on",
+      "transitions": [
+        {
+          "next": "NoInputPrompt",
+          "event": "noMatch"
+        },
+        {
+          "next": "CheckZipCode",
+          "event": "match",
+          "conditions": [
+            {
+              "friendly_name": "If value greater_than 2",
+              "arguments": [
+                "{{flow.variables.retry_count}}"
+              ],
+              "type": "greater_than",
+              "value": "3"
+            }
+          ]
+        }
+      ],
+      "properties": {
+        "input": "{{flow.variables.retry_count}}",
+        "offset": {
+          "x": 260,
+          "y": 400
+        }
+      }
+    },
+    {
+      "name": "NoInputPrompt",
+      "type": "say-play",
+      "transitions": [
+        {
+          "next": "GetZipcode",
+          "event": "audioComplete"
+        }
+      ],
+      "properties": {
+        "offset": {
+          "x": -50,
+          "y": 160
+        },
+        "loop": 1,
+        "say": "We have not received zipcode from you."
+      }
+    },
+    {
+      "name": "SetRetryCount_IsValidZipcode",
+      "type": "set-variables",
+      "transitions": [
+        {
+          "next": "NotValidZipcodePrompt",
+          "event": "next"
+        }
+      ],
+      "properties": {
+        "variables": [
+          {
+            "value": "{% if flow.variables.retry_count_zipcode %} {{flow.variables.retry_count_zipcode | plus: 1}} {% else %} 1 {% endif %}",
+            "key": "retry_count_zipcode"
+          }
+        ],
+        "offset": {
+          "x": -960,
+          "y": 840
+        }
+      }
+    },
+    {
+      "name": "ResetRetryCount_IsValidZipcode",
+      "type": "set-variables",
+      "transitions": [
+        {
+          "next": "ConnectingCallMessage",
+          "event": "next"
+        }
+      ],
+      "properties": {
+        "variables": [
+          {
+            "value": "0",
+            "key": "retry_count_zipcode"
+          }
+        ],
+        "offset": {
+          "x": -350,
+          "y": 1310
+        }
+      }
+    },
+    {
+      "name": "ResetRetryCount",
+      "type": "set-variables",
+      "transitions": [
+        {
+          "next": "CheckZipCode",
+          "event": "next"
+        }
+      ],
+      "properties": {
+        "variables": [
+          {
+            "value": "0",
+            "key": "retry_count"
+          }
+        ],
+        "offset": {
+          "x": -490,
+          "y": 660
+        }
+      }
+    },
+    {
+      "name": "ConnectCallToFranchise",
+      "type": "connect-call-to",
+      "transitions": [
+        {
+          "event": "callCompleted"
+        },
+        {
+          "event": "hangup"
+        }
+      ],
+      "properties": {
+        "sip_username": "",
+        "sip_endpoint": "",
+        "offset": {
+          "x": -350,
+          "y": 1710
+        },
+        "caller_id": "{{trigger.call.From}}",
+        "noun": "number",
+        "to": "{{widgets.CheckZipCode.parsed.franchise.number}}",
+        "sip_password": "",
+        "timeout": 30
+      }
+    },
+    {
+      "name": "ConnectingCallMessage",
+      "type": "say-play",
+      "transitions": [
+        {
+          "next": "ConnectCallToFranchise",
+          "event": "audioComplete"
+        }
+      ],
+      "properties": {
+        "offset": {
+          "x": -350,
+          "y": 1510
+        },
+        "loop": 1,
+        "say": "Please wait. We are connecting your call"
+      }
+    }
+  ],
+  "initial_state": "Trigger",
+  "flags": {
+    "allow_concurrent_calls": true
+  }
+}

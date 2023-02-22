@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <g id="Group_8" data-name="Group 8" transform="translate(-228 -540)">
+    <circle id="Ellipse_1" data-name="Ellipse 1" cx="24" cy="24" r="24" transform="translate(228 540)" fill="#04b54b"/>
+    <g id="Group_1" data-name="Group 1" transform="translate(171.903 136.765)">
+      <g id="calllogs" transform="translate(70.969 419.365)">
+        <path id="Path_1" data-name="Path 1" d="M18.018,14.966l-1.25-1.207a1.639,1.639,0,0,0-2.261,0l-.983.949a.777.777,0,0,1-.836.163A13.485,13.485,0,0,1,8.6,12.144,13.013,13.013,0,0,1,5.786,8.215a.736.736,0,0,1,.173-.835l.88-.85A1.537,1.537,0,0,0,6.93,4.259L5.679,3.052a2.186,2.186,0,0,0-3.015,0l-.7.67a3.213,3.213,0,0,0-.906,2.954,16.032,16.032,0,0,0,4.755,8.155,16.923,16.923,0,0,0,8.446,4.592,3.485,3.485,0,0,0,3.059-.875l.694-.67A2.01,2.01,0,0,0,18.018,14.966Z" transform="translate(-1 -2.449)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.2"/>
+      </g>
+      <g id="up-arrow-svgrepo-com" transform="matrix(0.719, 0.695, -0.695, 0.719, 85.311, 419.117)">
+        <line id="primary" y1="6.491" x2="0.121" transform="translate(2.228 0.33)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4"/>
+        <path id="primary-2" data-name="primary" d="M4.587,3,2.294,0,0,3" transform="translate(0 0)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+      </g>
+    </g>
+  </g>
+</svg>

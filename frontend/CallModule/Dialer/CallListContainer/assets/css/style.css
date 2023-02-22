@@ -1,0 +1,1769 @@
+.rx-soft-phone .callListContainer {
+  border: 0px solid black;
+  height: auto;
+  position: relative;
+  background: #fff;
+  border-radius: 8px;
+  text-align: center;
+  width: 100%;
+  float: left;
+}
+.rx-soft-phone .calldialleribox {
+  position: relative;
+  width: 100%;
+  float: left;
+  height: 43rem;
+}
+.rx-soft-phone .diallericons {
+  width: 100%;
+  float: left;
+  position: absolute;
+  height: auto;
+  min-height: inherit;
+  margin-bottom: 20px;
+  bottom: 0;
+}
+.rx-soft-phone .diallericons ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+  float: none;
+  align-items: center;
+  display: inline-flex;
+  width: inherit;
+}
+.rx-soft-phone .diallericons ul li {
+  float: left;
+  width: 100%;
+  text-align: center;
+}
+.rx-soft-phone .diallericons ul li h4,
+.rx-soft-phone .addcallicon h4 {
+  font-size: 10px;
+  color: #686a8a;
+  margin-top: 8px;
+}
+.rx-soft-phone .diallericons li img {
+  width: 50px;
+  margin: 0 auto;
+}
+.rx-soft-phone button.removecolorbut.keypadicon.btn.btn-primary {
+  position: static;
+  width: 100%;
+}
+.rx-soft-phone button.removecolorbut.endcallicon.btn.btn-primary {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  float: left;
+  text-align: center;
+  margin: 5% auto 0;
+}
+.rx-soft-phone button.removecolorbut.endcallicon.btn.btn-primary img {
+  width: 67px;
+}
+.rx-soft-phone .callListContainer img {
+  width: 50px;
+}
+.rx-soft-phone .primaryParticipant {
+  width: 100%;
+  float: left;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  padding: 0 0px;
+}
+.rx-soft-phone .callnametext {
+  width: 100%;
+  float: left;
+  text-align: center;
+  margin: 0px 0;
+  position: relative;
+  height: 90px;
+  margin-top: 20px;
+}
+
+.rx-soft-phone .callnametext ul li p {
+  background: rgb(214, 199, 160);
+}
+.rx-soft-phone .callnametext ul li ul li p {
+  background: rgb(179, 160, 214);
+}
+.rx-soft-phone .callnametext ul li ul li ul li p {
+  background: rgb(160, 197, 214);
+}
+
+.rx-soft-phone .callnametext ul:first-child {
+  list-style: none;
+  margin-left: 0px;
+  float: left;
+  width: 100%;
+}
+.rx-soft-phone .callnametext ul {
+  list-style: none;
+  margin: 0 0px;
+}
+.rx-soft-phone .callnametext p {
+  color: #1c0759;
+  width: 80px;
+  height: 80px;
+  background: #099;
+  border: 1px solid #fff;
+  float: none;
+  border-radius: 50px;
+  font-size: 16px;
+  padding: 27px;
+  font-weight: 500;
+  margin: 0 auto;
+  position: relative;
+}
+
+.rx-soft-phone .maincallname {
+  font-size: 20px;
+  width: auto;
+  float: none;
+  text-align: center;
+  margin-bottom: 0px;
+  color: #313131;
+  display: inline-flex;
+  font-weight: 500;
+}
+.rx-soft-phone .maincallnumber {
+  font-size: 16px;
+  color: #7c87a3;
+  width: 100%;
+  float: left;
+  text-align: center;
+  font-weight: 400;
+}
+.rx-soft-phone .maincallringing {
+  font-size: 14px;
+  color: #7c87a3;
+  width: 100%;
+  float: left;
+  text-align: center;
+  margin-top: 0px;
+  font-weight: 400;
+}
+.rx-soft-phone .searchboxsec {
+  width: 100%;
+  float: left;
+  position: relative;
+  padding: 0 10px;
+}
+.rx-soft-phone .searchboxsec img {
+  width: 24px;
+  position: absolute;
+  right: 20px;
+  top: 11px;
+}
+.rx-soft-phone .searchboxsec input {
+  width: 100%;
+  float: left;
+  padding: 11px 0;
+  border-radius: 32px;
+  background: #f3f7fb;
+  color: #313131;
+  border: none;
+  text-indent: 20px;
+  font-size: 14px;
+  outline: none;
+}
+.rx-soft-phone .searchboxsec::placeholder {
+  color: #c1c7d4;
+}
+.rx-soft-phone .phonebooklist {
+  max-height: 34rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+  float: left;
+  margin: 10px 0 10px;
+  padding: 0 10px;
+}
+.rx-soft-phone .phonebookbox {
+  /* width: 100%; */
+  float: left;
+  text-align: left;
+  display: flex;
+  padding: 14px 0;
+  border-bottom: 1px solid #f4f4f4;
+}
+.rx-soft-phone .callListContainer .phonebooknum {
+  width: 60%;
+  float: left;
+  text-align: left;
+}
+.rx-soft-phone .secondaryParticipant .phonebookicon {
+  width: 24%;
+  float: right;
+  display: inline-flex;
+}
+.rx-soft-phone .removecolorbut.smallcallicon img {
+  width: 26px;
+}
+.rx-soft-phone .secondaryParticipant .maincallringing {
+  font-size: 14px;
+  color: #2d2d2d;
+  width: 100%;
+  float: right;
+  text-align: left;
+  margin-top: 0px;
+}
+.rx-soft-phone .secondaryParticipant .phonebooknum span {
+  width: auto;
+  float: left;
+  text-align: left;
+  font-size: 16px;
+  color: #2d2d2d;
+  text-transform: capitalize;
+  font-weight: 400;
+}
+.rx-soft-phone .secondaryParticipant .phonebooknum span:first-child {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 115px;
+}
+.rx-soft-phone .secondaryParticipant .maincallname {
+  font-size: 16px;
+  font-weight: 500;
+  width: auto;
+  float: none;
+  text-align: center;
+  margin-bottom: 0px;
+  color: #313131;
+  display: inline-flex;
+}
+.rx-soft-phone .secondaryParticipant .maincallnumber {
+  font-size: 14px;
+  color: #7c87a3;
+  width: 100%;
+  float: left;
+  text-align: left;
+}
+.rx-soft-phone .secondaryParticipant .phonebooknum span:nth-child(2) {
+  font-size: 14px;
+  color: #7c87a3;
+  width: 100%;
+}
+.rx-soft-phone .secondaryParticipant .conferencecalllist {
+  width: 93%;
+  float: none;
+  display: inline-flex;
+  border: 1px solid #f4f4f4;
+  border-radius: 10px;
+  padding: 12px;
+  margin: 5px 0;
+}
+.rx-soft-phone .primaryParticipant .secondaryParticipant .conferencecalllist {
+  width: 100%;
+}
+.rx-soft-phone .secondaryParticipant .Nameletters {
+  width: 40px;
+  height: 40px;
+  background: #f8af0f;
+  color: #1c0759;
+  border-radius: 50px;
+  line-height: 37px;
+  font-size: 16px;
+  margin: 0;
+  text-align: center;
+  float: left;
+  margin-right: 10px;
+  padding: 0px 10px;
+}
+.rx-soft-phone .secondaryParticipant .Nameletters span {
+  font-size: 16px;
+  margin: 0px auto;
+  float: none;
+  font-weight: 500;
+  color: #21005d;
+}
+.rx-soft-phone .secondaryParticipant .phonebookbox:nth-child(odd) .Nameletters {
+  background: rgb(214, 199, 160);
+}
+.rx-soft-phone
+  .secondaryParticipant
+  .phonebookbox:nth-child(3n-1)
+  .Nameletters {
+  background: rgb(179, 160, 214);
+}
+.rx-soft-phone
+  .secondaryParticipant
+  .phonebookbox:nth-child(3n-2)
+  .Nameletters {
+  background: rgb(160, 197, 214);
+}
+.rx-soft-phone .secondaryParticipant .phonebooknum span.phonebookLead {
+  background: #e9fbf0;
+  border: 1px solid #04b54b;
+  color: #313131;
+  font-size: 9px;
+  padding: 0px 7px;
+  width: auto;
+  border-radius: 50px;
+  line-height: 16px;
+  float: left;
+  height: 17px;
+  margin-left: 7px;
+  margin-top: 3px;
+  text-transform: uppercase;
+}
+.rx-soft-phone .secondaryParticipant .callloglistsec .phonebooknum span {
+  width: 100%;
+  max-width: 145px;
+}
+.rx-soft-phone .contactuslist {
+  width: auto;
+  display: inline-flex;
+  float: left;
+  margin: 0;
+}
+.rx-soft-phone .contactuslist img {
+  width: auto;
+  height: 18px;
+  margin-right: 10px;
+  margin-top: 4px;
+}
+.rx-soft-phone .contactuslist h4 {
+  font-size: 16px;
+  color: #313131;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.rx-soft-phone .sent .sendmeasgtext span.msgdeliverystatus {
+  width: 12px;
+  height: 12px;
+  display: block;
+  margin-left: 5px;
+}
+
+.rx-soft-phone .received .sendmeasgtext span.msgdeliverystatus {
+  display: none;
+}
+
+.rx-soft-phone .sendmeasgtext span.chatstatuspoint {
+  width: 10px;
+  height: 10px;
+  background: #b5b5b5;
+  float: right;
+  border-radius: 20px;
+  margin-top: 0px;
+  margin-left: 5px;
+}
+
+.rx-soft-phone
+  .phonebookicon
+  button.removecolorbut.endcallicon.btn.btn-primary
+  img {
+  width: 40px;
+  float: right;
+}
+.rx-soft-phone .sendmeasgtext span.chatstatuspoint.active {
+  background: #04b54b;
+}
+
+.rx-soft-phone button.removecolorbut.infoicon.btn.btn-primary {
+  padding: 4px;
+  float: right;
+  margin-left: 4px;
+}
+.rx-soft-phone button.removecolorbut.infoicon.btn.btn-primary img {
+  width: 20px;
+}
+.rx-soft-phone .conferencecallnum {
+  float: left;
+  margin-left: 8px;
+}
+
+.rx-soft-phone .grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #fff;
+  padding: 3px;
+  border-bottom-right-radius: 30px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  width: 100%;
+  float: left;
+}
+.rx-soft-phone .grid-item {
+  cursor: pointer;
+  background: #f4f7fa;
+  font-size: 24px;
+  text-align: center;
+  min-width: 80px;
+  margin: 0.3rem;
+  height: 3.6rem;
+  padding: 8px 9px;
+  line-height: 11px;
+  justify-content: center;
+  align-items: center;
+  display: inline-grid;
+  color: #313131;
+  border-radius: 10px;
+  font-family: "Inter", sans-serif;
+}
+/* .grid-item:nth-child(3n+2){
+  margin: 5px;
+} */
+.rx-soft-phone .dialerContainer .grid-item span {
+  max-height: 1rem;
+  font-size: 24px;
+}
+.rx-soft-phone .grid-item span:nth-child(2) {
+  font-size: 12px;
+  float: left;
+  font-weight: 600;
+}
+.rx-soft-phone .keypadnumberinputbox {
+  position: relative;
+  width: 94%;
+  margin: 20px auto;
+}
+.rx-soft-phone .keypadnumberinputbox input#keyNumber {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 0px;
+  border: none;
+  font-size: 24px;
+  text-align: center;
+  font-weight: 400;
+  float: left;
+  background: none;
+  padding-right: 26px;
+  padding-left: 20px;
+}
+.rx-soft-phone .grid-item span {
+  border: none;
+}
+.rx-soft-phone .keypadendcallsec {
+  width: 100%;
+  float: left;
+  position: relative;
+}
+.rx-soft-phone button.removecolorbut.hideicon.btn.btn-primary {
+  float: right;
+  text-align: right;
+  position: absolute;
+  right: 16px;
+  top: 2rem;
+  color: #7c87a3;
+  font-size: 14px;
+}
+.rx-soft-phone .keypadfullsec {
+  width: 100%;
+  float: left;
+  margin: 6.4% 0;
+  position: absolute;
+  bottom: 0;
+  outline: none;
+}
+.rx-soft-phone button.removecolorbut.mainendcall.btn.btn-primary img {
+  width: 65px;
+  float: none;
+}
+
+.rx-soft-phone button.removecolorbut.mainendcall.btn.btn-primary {
+  padding: 0;
+  cursor: pointer;
+}
+
+.rx-soft-phone button.removecolorbut.backspace.btn.btn-primary img {
+  width: 24px;
+  margin-top: 8px;
+}
+.rx-soft-phone button.removecolorbut.backspace.btn.btn-primary {
+  position: absolute;
+  right: 0;
+}
+
+.rx-soft-phone button.removecolorbut.smallcallicon.btn.btn-primary img {
+  width: 24px;
+}
+.rx-soft-phone .primaryParticipant .displayCallNameContainer {
+  display: none;
+}
+.rx-soft-phone .secondaryParticipant .displayCallNameContainer {
+  display: flex;
+}
+
+.rx-soft-phone button.removecolorbut.confrecall.btn.btn-primary {
+  float: left;
+  width: auto;
+  padding: 0;
+}
+.rx-soft-phone
+  button.removecolorbut.confrecall.btn.btn-primary
+  .contactuslist
+  img {
+  width: auto;
+  height: 18px;
+  margin-right: 20px;
+  margin-top: 4px;
+}
+
+.rx-soft-phone
+  .secondaryParticipant
+  button.removecolorbut.smallndcallicon.btn.btn-primary {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  float: left;
+  text-align: center;
+  margin: 0 auto 0;
+  padding: 0;
+}
+.rx-soft-phone
+  .secondaryParticipant
+  button.removecolorbut.smallndcallicon.btn.btn-primary
+  img {
+  width: 40px !important;
+  float: right;
+}
+.rx-soft-phone .secondaryParticipant .displayCallNameContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  justify-content: center;
+  width: 20%;
+  height: 73px;
+  float: left;
+  margin-right: 10px;
+}
+.rx-soft-phone .phonebooknum {
+  text-align: center;
+  width: 100%;
+  float: left;
+}
+.rx-soft-phone .secondaryParticipant .callnametext {
+  display: none;
+}
+
+.rx-soft-phone .chartboxsec .Nameletters {
+  width: 40px;
+  height: 40px;
+  background: #f8af0f;
+  color: #1c0759;
+  border-radius: 50px;
+  line-height: 37px;
+  font-size: 16px;
+  margin: 0;
+  text-align: center;
+  float: left;
+  margin-right: 14px;
+  position: relative;
+}
+.rx-soft-phone .chartboxsec .Nameletters span {
+  font-size: 16px;
+  margin: 0px auto;
+  float: none;
+  font-weight: 500;
+  color: #21005d;
+}
+.rx-soft-phone .chartboxsec .phonebookbox:nth-child(odd) .Nameletters {
+  background: rgb(214, 199, 160);
+}
+.rx-soft-phone .chartboxsec .phonebookbox:nth-child(3n-1) .Nameletters {
+  background: rgb(179, 160, 214);
+}
+.rx-soft-phone .chartboxsec .phonebookbox:nth-child(3n-2) .Nameletters {
+  background: rgb(160, 197, 214);
+}
+.rx-soft-phone .chartboxsec .phonebooknum {
+  width: 80%;
+  float: left;
+  text-align: left;
+}
+.rx-soft-phone .chartboxsec .phonebookbox {
+  cursor: pointer;
+}
+.rx-soft-phone .chartboxsec .phonebooknum span {
+  width: auto;
+  float: left;
+  text-align: left;
+  font-size: 16px;
+  color: #2d2d2d;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 140px;
+  text-transform: capitalize;
+  font-weight: 400;
+}
+.rx-soft-phone .chartboxsec .phonebooknum span:nth-child(2) {
+  font-size: 12px;
+  color: #7c87a3;
+  width: 94%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  max-width: inherit;
+  white-space: initial;
+}
+.rx-soft-phone .chartboxsec .phonebookicon {
+  width: 30%;
+  float: right;
+  font-size: 14px;
+  text-align: right;
+  color: #7c87a3;
+}
+.rx-soft-phone .chartboxsec .phonebooklist {
+  height: auto;
+  overflow-y: auto;
+  width: 100%;
+  float: left;
+  margin: 10px 0 0px;
+  min-height: initial;
+  overflow-x: hidden;
+}
+.rx-soft-phone .chartboxsec button.removecolorbut.chartdate.btn.btn-primary {
+  font-size: 14px;
+  color: #313131;
+}
+.rx-soft-phone .removecolorbut.chartcallicon img {
+  width: 24px;
+  margin-right: 10px;
+  margin-top: 8px;
+}
+
+.rx-soft-phone .Nameletters {
+  width: 40px;
+  height: 40px;
+  background: #f8af0f;
+  color: #1c0759;
+  border-radius: 50px;
+  line-height: 37px;
+  font-size: 16px;
+  margin: 0;
+  text-align: center;
+  float: left;
+  margin-right: 14px;
+}
+.rx-soft-phone .Nameletters span {
+  font-size: 16px;
+  margin: 0px auto;
+  float: none;
+  font-weight: 500;
+  color: #21005d;
+}
+.rx-soft-phone .sendmeasgtext {
+  width: auto;
+  font-size: 14px;
+  line-height: 20px;
+  background: #e5f7ff;
+  padding: 6px;
+  border-radius: 20px;
+  color: #313131;
+  padding: 12px 16px 12px 16px;
+  text-align: left;
+  position: relative;
+}
+.rx-soft-phone .measgbox {
+  width: 100%;
+  float: left;
+  max-height: 34rem;
+  min-height: 34rem;
+  position: relative;
+  padding: 0 5px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.rx-soft-phone .sendmeasg .phonebookbox {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  max-width: 90%;
+}
+
+.rx-soft-phone .sent .sendmeasgtext {
+  width: auto;
+  font-size: 14px;
+  line-height: 20px;
+  background: #eff2fb;
+  padding: 6px;
+  border-radius: 15px;
+  float: right;
+  color: #313131;
+  padding: 10px 20px;
+  margin: 6px 0;
+}
+
+.rx-soft-phone .measgbox .dayandtime {
+  float: right;
+  text-align: right;
+  font-size: 9px;
+  color: #2d2d2d;
+  font-weight: 400;
+  margin-left: 10px;
+  margin-top: 8px;
+  line-height: normal;
+  display: inline-flex;
+}
+.rx-soft-phone .measgbox .sendmeasg .dayandtime {
+  text-align: right;
+}
+.rx-soft-phone .measgtextbox {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+.rx-soft-phone .measgtextbox input {
+  width: 80%;
+  float: left;
+  padding: 10px;
+  border-radius: 0px;
+  background: #f3f7fb;
+  color: #313131;
+  border: none;
+  text-indent: 0px;
+  font-size: 14px;
+  outline: none;
+  border: 1px solid #cccccc;
+}
+.rx-soft-phone .measgtextbox img {
+  width: 24px;
+  position: absolute;
+  right: 20px;
+  top: 11px;
+}
+
+.rx-soft-phone
+  .callListContainer.secondaryParticipant.outgoingcall
+  .Nameletters {
+  width: 40px;
+  height: 40px;
+  background: #f8af0f;
+  color: #1c0759;
+  border-radius: 50px;
+  line-height: 37px;
+  font-size: 16px;
+  margin: 0;
+  text-align: center;
+  float: left;
+  margin-right: 14px;
+  padding: 0;
+}
+.rx-soft-phone
+  .callListContainer.secondaryParticipant.outgoingcall
+  .phonebooknum {
+  width: 52%;
+  float: left;
+  text-align: left;
+}
+.rx-soft-phone
+  .callListContainer.secondaryParticipant.outgoingcall
+  .Nameletters
+  img {
+  width: 40px;
+  padding: 11px;
+}
+.rx-soft-phone .secondaryParticipant .phonebooknum span:nth-child(3) {
+  font-size: 14px;
+  color: #7c87a3;
+  width: 100%;
+}
+.rx-soft-phone .secondaryParticipant .callloglistsec .phonebooknum p {
+  width: auto;
+  float: left;
+  font-size: 10px;
+  color: #7c87a3;
+  margin: 0;
+}
+.rx-soft-phone .secondaryParticipant .callloglistsec .phonebooknum p span {
+  width: auto;
+  float: initial;
+  font-size: 10px;
+  color: #7c87a3;
+}
+
+.rx-soft-phone
+  .callListContainer.secondaryParticipant.outgoingcall
+  button.removecolorbut.endcallicon.btn.btn-primary,
+.rx-soft-phone
+  .callListContainer.secondaryParticipant.outgoingcall
+  button.removecolorbut.callattendicon.btn.btn-primary {
+  margin: 0;
+  width: 100%;
+  margin-right: 0.5rem;
+  float: right;
+  text-align: right;
+}
+.rx-soft-phone
+  .callListContainer.secondaryParticipant.outgoingcall
+  .phonebookicon {
+  width: 33%;
+  float: right;
+  display: inline-flex;
+  text-align: right;
+}
+.rx-soft-phone
+  .callListContainer.secondaryParticipant.outgoingcall
+  button.removecolorbut.endcallicon.btn.btn-primary
+  img,
+.rx-soft-phone
+  .callListContainer.secondaryParticipant.outgoingcall
+  button.removecolorbut.callattendicon.btn.btn-primary
+  img {
+  width: 40px;
+}
+.rx-soft-phone .callListContainer.secondaryParticipant.outgoingcall {
+  border: 0px solid black;
+  height: auto;
+  position: relative;
+  background: #fff;
+  border-radius: 8px;
+  text-align: center;
+  width: 100%;
+  float: left;
+  padding: 0 10px;
+}
+
+.rx-soft-phone
+  .mainboxheader
+  button.removecolorbut.chatboxarrow.btn.btn-primary {
+  width: 100%;
+  display: inline-flex;
+}
+.rx-soft-phone
+  .conversationContainer.chartboxsec
+  .mainboxheader
+  button.removecolorbut.chatboxarrow.btn.btn-primary {
+  width: 100%;
+  display: block;
+}
+.rx-soft-phone .conversationContainer.chartboxsec .mainboxheader .phonebooknum {
+  width: auto;
+  float: left;
+  text-align: left;
+  margin-left: 10px;
+  min-width: 100px;
+}
+.rx-soft-phone
+  .conversationContainer.chartboxsec
+  .mainboxheader
+  button.removecolorbut.chatboxarrow.btn.btn-primary
+  img {
+  float: left;
+  width: auto;
+  margin-top: 12px;
+}
+.rx-soft-phone
+  .conversationContainer.chartboxsec
+  .mainboxheader
+  span.chartcallicon {
+  margin-top: 12px;
+  float: left;
+}
+.rx-soft-phone
+  .conversationContainer.chartboxsec
+  .mainboxheader
+  .contactuslist
+  h4 {
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 140px;
+}
+.rx-soft-phone
+  .mainboxheader
+  button.removecolorbut.chatboxarrow.btn.btn-primary
+  img {
+  float: left;
+  width: auto;
+}
+.rx-soft-phone
+  .measgtextbox
+  button.removecolorbut.chatsendicon.btn.btn-primary
+  img {
+  width: 40px;
+  cursor: pointer;
+  background: #000;
+  border-radius: 0px;
+  float: right;
+  padding: 10px 10px;
+  position: absolute;
+  right: 10px;
+  top: 16px;
+  border-radius: 50px;
+}
+.rx-soft-phone .secondaryParticipant .phonebooklist.phonebooklist .Nameletters {
+  padding: 0px 6px;
+}
+.rx-soft-phone
+  .secondaryParticipant
+  .phonebooklist.phonebooklist
+  .phonebooknum {
+  text-align: center;
+  width: 60%;
+  float: left;
+}
+.rx-soft-phone .secondaryParticipant {
+  padding: 0 0px;
+}
+.rx-soft-phone .secondaryParticipant .conferencecalllist .phonebooknum {
+  text-align: left;
+  width: 65%;
+  float: left;
+}
+
+.rx-soft-phone
+  .incomingcallscrollsec
+  .callListContainer.secondaryParticipant.inbound
+  .phonebookbox {
+  width: 100%;
+  float: left;
+  text-align: left;
+  display: flex;
+  padding: 14px 0;
+  border-bottom: 1px solid #f4f4f4;
+  background: #313131;
+  padding: 14px;
+  border-radius: 10px;
+  color: #fff;
+}
+.rx-soft-phone .incomingcalllist {
+  position: absolute;
+  top: 0;
+}
+.rx-soft-phone
+  .incomingcallscrollsec
+  .callListContainer.secondaryParticipant.outgoingcall.inbound.initiated {
+  width: 100%;
+  float: left;
+  text-align: left;
+  display: flex;
+  padding: 14px 0;
+  background: none;
+  padding: 14px;
+  border-radius: 0px;
+  color: #fff;
+  position: absolute;
+  top: 0;
+}
+.rx-soft-phone
+  .incomingcallscrollsec
+  .callListContainer.secondaryParticipant.outgoingcall.inbound.initiated
+  .phonebooknum
+  span {
+  color: #fff;
+}
+.rx-soft-phone
+  .callListContainer.secondaryParticipant.incomingcall
+  .phonebooknum
+  span,
+.rx-soft-phone
+  .callListContainer.secondaryParticipant.incomingcall
+  .phonebooknum
+  span:nth-child(2),
+.rx-soft-phone
+  .callListContainer.secondaryParticipant.incomingcall
+  .phonebooknum
+  span:nth-child(3) {
+  color: #fff;
+}
+.rx-soft-phone .firsttext {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  justify-content: center;
+}
+
+.rx-soft-phone .secondaryParticipant .callhistorysec .firsttext .Nameletters {
+  background: none;
+}
+.rx-soft-phone .secondaryParticipant .callhistorysec .phonebookicon {
+  width: 23%;
+  float: right;
+  display: inline-flex;
+}
+.rx-soft-phone .secondaryParticipant .callhistorysec .phonebookicon .calltime {
+  display: flex;
+}
+.rx-soft-phone
+  .secondaryParticipant
+  .callhistorysec
+  .phonebookicon
+  .calltime
+  p {
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  justify-content: center;
+  margin: 0;
+  font-size: 14px;
+  color: #7c87a3;
+}
+.rx-soft-phone .todaydate {
+  font-size: 14px;
+  color: #7c87a3;
+  text-align: left;
+  width: 100%;
+  margin: 5px 0;
+}
+.rx-soft-phone .removecolorbut.notificationbox {
+  width: 100%;
+  float: left;
+}
+.rx-soft-phone .holdCallParentDiv {
+  width: 100%;
+  display: block;
+  background: #ffc56f;
+  padding: 7px;
+  float: left;
+  color: #000000;
+  border-radius: 4px;
+  margin-bottom: 0px;
+  margin-top: 33px;
+}
+.rx-soft-phone .holdCallParentDiv:hover {
+  background: #ddab60;
+}
+.rx-soft-phone .holdCallParentDiv .holdCallDivText {
+  margin: 0;
+  float: left;
+  font-size: 14px;
+}
+.rx-soft-phone a.viewCallsOnHoldBtn {
+  float: right;
+  color: #000000;
+  font-size: 14px;
+  text-decoration: none;
+  border-bottom: 1px solid #000;
+  margin: 0;
+}
+.rx-soft-phone a.viewCallsOnHoldBtn:hover {
+  color: #000000;
+}
+.rx-soft-phone .holdCallDivlink {
+  float: right;
+}
+
+.rx-soft-phone .secondaryParticipant .allcalllist .phonebookicon {
+  width: 25%;
+  float: right;
+  display: inline-flex;
+}
+.rx-soft-phone .secondaryParticipant .allcalllist .phonebookicon .calltime {
+  display: flex;
+}
+.rx-soft-phone .secondaryParticipant .allcalllist .phonebookicon .calltime p {
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  justify-content: center;
+  margin: 0;
+  font-size: 14px;
+  color: #7c87a3;
+}
+.rx-soft-phone .secondaryParticipant .allcalllist .phonebookbox {
+  width: 100%;
+  float: left;
+  text-align: left;
+  display: flex;
+  padding: 14px 0;
+  border: 1px solid #0083e1;
+  background: #f4fbff;
+  padding: 8px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+.rx-soft-phone
+  .conversationContainer.chartboxsec
+  .mainboxheader
+  button.removecolorbut.chatboxarrow.btn.btn-primary
+  .firsttext {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  justify-content: center;
+  width: 20%;
+  float: left;
+}
+.rx-soft-phone .measgbox .phonebookbox {
+  border: none;
+  display: flex;
+  /* flex-direction: inherit; */
+  max-width: 100%;
+  padding: 3px 0;
+}
+.rx-soft-phone .firsttext {
+  display: flex;
+}
+.rx-soft-phone .sendmeasgtext {
+  float: left;
+  position: relative;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  margin-left: 0px;
+  word-wrap: break-word;
+  max-width: 290px;
+  margin: 6px 0;
+}
+.rx-soft-phone .chartboxsec .measgbox .Nameletters {
+  width: 25px;
+  height: 25px;
+  background: #f8af0f;
+  color: #1c0759;
+  border-radius: 50px;
+  line-height: 27px;
+  font-size: 10px;
+  margin: 0;
+  text-align: center;
+  float: left;
+  margin-right: 5px;
+}
+.rx-soft-phone .chartboxsec .measgbox .Nameletters span {
+  font-size: 10px;
+  margin: 0px auto;
+  float: none;
+  font-weight: 500;
+  color: #21005d;
+  text-transform: uppercase;
+}
+.rx-soft-phone .chartboxsec .measgbox .phonebooknum span {
+  width: 100%;
+  float: left;
+  text-align: left;
+  font-size: 12px;
+  color: #313131;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 140px;
+  text-transform: capitalize;
+  font-weight: 500;
+  margin-top: 3px;
+}
+.rx-soft-phone .chartboxsec .measgbox .chatboxtext {
+  margin-left: 0;
+  width: auto;
+  float: left;
+  cursor: auto;
+}
+.rx-soft-phone .chartboxsec .measgbox .phonebooknum {
+  width: auto;
+  float: left;
+  text-align: left;
+  display: inline-flex;
+}
+.rx-soft-phone .chartboxsec .measgbox .phonebooknum span:nth-child(2) {
+  color: #7c87a3;
+  margin-left: 10px;
+}
+.rx-soft-phone .chartboxsec .measgbox .sent .chatboxtext {
+  width: auto;
+  float: right;
+}
+.rx-soft-phone .measgbox .sent .phonebookbox {
+  border: none;
+  display: block;
+  flex-direction: inherit;
+  max-width: 100%;
+}
+.rx-soft-phone .chartboxsec .measgbox .sent .Nameletters {
+  text-align: center;
+  float: right;
+  margin-left: 5px;
+  margin-right: 0px;
+}
+.rx-soft-phone .chartboxsec .measgbox .sent .phonebooknum {
+  width: auto;
+  float: right;
+  text-align: right;
+  display: inline-flex;
+}
+.rx-soft-phone .chartboxsec .measgbox .sent .chatboxtext {
+  float: left;
+  margin-right: 0px;
+  width: auto;
+}
+.holdCallDivText {
+  text-align: left;
+}
+
+.holdCallParentDiv {
+  background: #fec56f;
+  padding: 0.2rem 1rem;
+  margin-bottom: 18px;
+}
+
+.rx-soft-phone .chartboxlist .phonebookbox {
+  width: 100%;
+  padding: 14px 0;
+}
+
+.callListContainer.secondaryParticipant .holdResumeText {
+  display: none;
+}
+
+.viewCallsOnHoldBtn {
+  cursor: pointer;
+}
+
+.rx-soft-phone .phonebooklist.phonebooklist .phonebookbox {
+  width: 100%;
+}
+
+.rx-soft-phone .conferencecalllist .phonebookbox {
+  padding: 0;
+  border: none;
+}
+.rx-soft-phone
+  .callListContainer.secondaryParticipant.outgoingcall
+  button.removecolorbut
+  img.holdresumesmallicon {
+  width: 40px;
+}
+
+.rx-soft-phone .closepopup {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 99;
+}
+
+.rx-soft-phone p.todaydate {
+  font-size: 12px;
+  color: #313131;
+  width: 100px;
+  text-align: center;
+  background: #ccc;
+  margin: 0 auto;
+  border-radius: 40px;
+}
+.rx-soft-phone p.todaydate.flotingtop {
+  margin: 0 auto;
+  border-radius: 40px;
+  position: sticky;
+  top: 0;
+  left: 34%;
+  right: 34%;
+  z-index: 99;
+}
+
+.rx-soft-phone .firsttext.participantBlock {
+  display: block;
+}
+.rx-soft-phone .chartboxlist .phonebookicon .chatstatuspoint.active {
+  background: #04b54b;
+  border-radius: 50px;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  color: #ffffff;
+  font-size: 10px;
+}
+.rx-soft-phone .chartboxlist .phonebookicon .chattimestamp {
+  font-size: 10px;
+  margin-bottom: 8px;
+  float: right;
+  color: #7c87a3;
+}
+.rx-soft-phone .secondaryParticipant.conferencecall {
+  padding: 0 10px;
+}
+.rx-soft-phone .measgtextbox {
+  background: #f3f7fb;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  color: #313131;
+  float: left;
+  font-size: 14px;
+  outline: none;
+  padding: 11px;
+  text-indent: 0px;
+  width: 100%;
+}
+.rx-soft-phone .measgtextbox textarea {
+  border: none;
+  background: none;
+  width: 84%;
+  float: left;
+  resize: none;
+  outline: none;
+}
+.rx-soft-phone
+  .secondaryParticipant
+  .phonebooklist.phonebooklist.callloglistsec
+  .phonebookicon {
+  width: 30%;
+  float: right;
+  display: inline-flex;
+  align-items: center;
+  justify-content: end;
+}
+.rx-soft-phone
+  .secondaryParticipant
+  .phonebooklist.phonebooklist.callloglistsec
+  .Nameletters {
+  background: none;
+}
+.rx-soft-phone
+  .secondaryParticipant
+  .phonebooklist.phonebooklist.callloglistsec
+  .logingicon {
+  width: 26px !important;
+  height: 26px;
+}
+.rx-soft-phone .btn:first-child:active:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+.rx-soft-phone .btn:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+.rx-soft-phone .btn-check:checked + .btn:focus-visible,
+.rx-soft-phone .btn.active:focus-visible,
+.rx-soft-phone .btn.show:focus-visible,
+.rx-soft-phone .btn:first-child:active:focus-visible,
+.rx-soft-phone :not(.btn-check) + .btn:active:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+.rx-soft-phone
+  .incomingcallscrollsec
+  .secondaryParticipant.inbound
+  .phonebooknum
+  span {
+  color: #d2d2d2;
+}
+.rx-soft-phone
+  .incomingcallscrollsec
+  .secondaryParticipant.inbound
+  .phonebooknum
+  span:nth-child(2) {
+  color: #d2d2d2;
+}
+.rx-soft-phone
+  .incomingcallscrollsec
+  .secondaryParticipant.inbound
+  .phonebooknum
+  span:nth-child(3) {
+  color: #d2d2d2;
+}
+.rx-soft-phone .secondaryParticipant .phonebooknum span:nth-child(4) {
+  font-size: 10px;
+  color: #7c87a3;
+}
+.rx-soft-phone .forwardcalllist p {
+  float: left;
+  margin: 0;
+  font-size: 10px;
+  margin-right: 2px;
+  color: #607d8b;
+  width: 100%;
+  text-align: left;
+}
+.rx-soft-phone .forwardcalllist {
+  display: inline-block;
+  margin-top: auto;
+}
+.rx-soft-phone .chartboxsec .measgbox .received {
+  margin-left: 10px;
+}
+.rx-soft-phone .chartboxsec .measgbox .sent {
+  margin-right: 10px;
+}
+
+.rx-soft-phone .incomingcallsec.incomingcallscrollsec {
+  position: absolute;
+  top: 0;
+  max-height: 22rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+}
+.rx-soft-phone .incomingcallsec.incomingcallscrollsec .hold,
+.rx-soft-phone .incomingcallsec.incomingcallscrollsec .in-progress {
+  display: none;
+}
+.rx-soft-phone .incomingcallsec {
+  float: left;
+  margin: 0px 0;
+  max-height: 40rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0 0px;
+  width: 100%;
+}
+
+.rx-soft-phone .removecolorbut.pauseplayicon {
+  margin-right: 0.5rem;
+}
+.rx-soft-phone
+  .secondaryParticipant
+  .callloglistsec
+  button.removecolorbut.smallcallicon.btn.btn-primary {
+  width: inherit;
+}
+.rx-soft-phone .secondaryParticipant.hold .phonebooknum span:nth-child(3) {
+  font-size: 10px;
+  color: #7c87a3;
+  width: 95%;
+}
+.rx-soft-phone .secondaryParticipant .callforwardsec {
+  float: left;
+  text-align: left;
+  padding: 10px 10px 0;
+  width: 100%;
+}
+.rx-soft-phone .secondaryParticipant .callforwardsec h3 {
+  font-size: 14px;
+  text-align: left;
+  font-weight: 600;
+  margin: 0 0 5px;
+  color: #313131;
+}
+.rx-soft-phone .secondaryParticipant .callforwardsec .selectboxsec {
+  width: 100%;
+  float: left;
+  margin: 10px 0;
+}
+.rx-soft-phone .secondaryParticipant .preferencessec .callforwardsec button.forwardbut {
+  background: #313131;
+  color: #dfdfdf;
+  border: 0;
+  padding: 5px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 4px;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+.rx-soft-phone .secondaryParticipant .preferencessec .callforwardsec button.forwardbut:hover {
+  background: #666;
+}
+.rx-soft-phone .secondaryParticipant .callforwardsec input#Forwarding {
+  margin-right: 5px;
+  width: auto;
+}
+.rx-soft-phone .secondaryParticipant .callforwardsec label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #313131;
+}
+.rx-soft-phone .secondaryParticipant .callforwardsec select {
+  width: 100%;
+  padding: 5px 0px;
+  text-indent: 10px;
+  font-size: 14px;
+  border: 0px solid #7c87a3;
+  border-radius: 20px;
+  outline: none;
+  color: #313131;
+  position: relative;
+}
+.rx-soft-phone .secondaryParticipant .callforwardsec .selecrbox {
+  border: 1px solid #7c87a3;
+  border-radius: 50px;
+  padding-right: 10px;
+  width: 100%;
+  float: left;
+}
+.rx-soft-phone .secondaryParticipant .callforwardsec input {
+  width: 100%;
+  padding: 5px 0px;
+  text-indent: 13px;
+  font-size: 14px;
+  border: 1px solid #7c87a3;
+  border-radius: 20px;
+  outline: none;
+  color: #313131;
+}
+.rx-soft-phone .secondaryParticipant .callforwardsec input::placeholder {
+  font-size: 14px;
+}
+.rx-soft-phone input::-webkit-outer-spin-button,
+.rx-soft-phone input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.rx-soft-phone input[type="number"] {
+  -moz-appearance: textfield;
+}
+.rx-soft-phone .btn:disabled {
+  opacity: 0.2;
+}
+
+.rx-soft-phone span.notificationdot {
+  width: 10px;
+  height: 10px;
+  background: red;
+  float: right;
+  border-radius: 50px;
+  margin: -3px -5px;
+  position: absolute;
+  top: 0px;
+}
+.rx-soft-phone .dialpad-border-right span.notificationdot {
+  width: 7px;
+  height: 7px;
+  background: red;
+  float: right;
+  border-radius: 50px;
+  margin: -3px -5px;
+  position: absolute;
+  top: 8px;
+  left: 10px;
+}
+
+.rx-soft-phone .noresult {
+  font-size: 12px;
+  text-align: center;
+  width: 100%;
+  float: left;
+  margin-top: 10px;
+  color: #7c87a3;
+}
+.rx-soft-phone ::-webkit-scrollbar {
+  width: 8px;
+}
+.rx-soft-phone ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.rx-soft-phone ::-webkit-scrollbar-thumb {
+  background: #666;
+  border-radius: 5px;
+}
+.rx-soft-phone ::-webkit-scrollbar-thumb:hover {
+  background: #000;
+}
+.rx-soft-phone .hidden {
+  display: none !important;
+}
+.rx-soft-phone .secondaryParticipant .phonebooknum span.phonebookUser {
+  background: #fbf1e9;
+  border: 1px solid #ffc107;
+  color: #313131;
+  font-size: 9px;
+  padding: 0px 7px;
+  width: auto;
+  border-radius: 50px;
+  line-height: 16px;
+  float: left;
+  height: 17px;
+  margin-left: 7px;
+  margin-top: 3px;
+  text-transform: uppercase;
+}
+.rx-soft-phone .secondaryParticipant .callforwardsec select::after {
+  content: "▼";
+  font-size: 1rem;
+  top: 6px;
+  right: 10px;
+  position: absolute;
+}
+.rx-soft-phone
+  button.removecolorbut.pauseplayicon.smallcallicon.btn.btn-primary
+  img {
+  width: 22px;
+}
+.rx-soft-phone .mainboxheader.incomingcallscrollsec {
+  display: none;
+}
+.rx-soft-phone
+  .conversationContainer.chartboxsec
+  .mainboxheader
+  button.removecolorbut.chatboxarrow.btn.btn-primary
+  img.chatboxmainavatar {
+  float: none;
+  margin: 0 auto;
+}
+.rx-soft-phone .chartboxsec .measgbox .Nameletters span img {
+  width: 12px;
+  margin-top: -4px;
+}
+
+span.voicemailaudioduration {
+  bottom: -15px;
+  font-size: 8px;
+  left: -5px;
+  position: absolute;
+  width: 100px;
+}
+.voicemailiconsec {
+  position: relative;
+}
+
+.displayIndividualContainerWithWarningMessage {
+  display: none;
+}
+.incomingcallsec.incomingcallscrollsec
+  .displayIndividualContainerWithWarningMessage {
+  display: block;
+}
+.rx-soft-phone .chartboxsec .unreadConversation .phonebooknum span{
+  font-weight: 600;
+}
+.rx-soft-phone .chartboxsec .unreadConversation .phonebooknum span:nth-child(2){
+  color: #313131;
+  font-weight: 600;
+}
+.rx-soft-phone .chartboxlist .unreadConversation .phonebookicon .chattimestamp {
+  color: #313131;
+  font-weight: 600;
+  width: 100%;
+}
+.rx-soft-phone .secondaryParticipant .callloglistsec .isRead .phonebooknum span{
+  font-weight: 600;
+}
+.rx-soft-phone .secondaryParticipant .isRead .phonebooknum span:nth-child(2){
+  color: #313131;
+  font-weight: 600;
+}
+.rx-soft-phone .secondaryParticipant .callloglistsec .isRead .phonebooknum p{
+  color: #313131;
+  font-weight: 600;
+}
+.rx-soft-phone .secondaryParticipant .callloglistsec .isRead .phonebooknum p span{
+  color: #313131;
+  font-weight: 600;
+}
+
+.rx-soft-phone .displayIndividualContainerWithWarningMessage {
+  background: #FFF6DE;
+  padding: 8px 10px;
+  font-size: 13px;
+  line-height: 17px;
+  font-weight: 400;
+  color: #313131;
+  margin: 0px 0 0px;
+  text-align: left;
+  border-radius: 8px;
+  float: left;
+  display: inline-flex;
+}
+.callListContainer.secondaryParticipant.outgoingcall.inbound.ringing{
+  padding-top: 10px;
+}
+
+.rx-soft-phone .displayIndividualContainerWithWarningMessage img {
+  margin-right: 10px;
+  margin-bottom: 0;
+  float: left;
+}
+.rx-soft-phone .displayIndividualContainerWithWarningMessage span {
+  width: 80%;
+  float: left;
+}
+.rx-soft-phone .callforwardsec h4 {
+  font-size: 16px;
+  color: #313131;
+  line-height: 24px;
+  font-weight: 600;
+  border-bottom: 1px solid #ccc;
+    padding-bottom: 8px;
+}
+
+.rx-soft-phone .secondaryParticipant .callforwardsec button.removecolorbut.forwardbut img {
+  width: 22px;
+  height: 22px;
+}
+.rx-soft-phone .secondaryParticipant .callforwardsec button.removecolorbut.forwardbut {
+  margin: 0;
+  padding: 0;
+}
+.rx-soft-phone .secondaryParticipant .preferencessec {
+  width: 100%;
+  float: left;
+  position: relative;
+  min-height: 39rem;
+}
+.rx-soft-phone .secondaryParticipant .preferencessec button.forwardbut {
+  background: #313131;
+  color: #dfdfdf;
+  border: 0;
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 4px;
+  margin-top: 0px;
+  margin-right: 0px;
+}
+.rx-soft-phone .secondaryParticipant .preferencessec button.forwardbut:hover {
+  background: #666;
+}
+.rx-soft-phone .secondaryParticipant .preferencessec .bottomfixbut{
+  position: absolute;
+    bottom: 10px;
+    text-align: center;
+    width: 100%;
+}
+.rx-soft-phone .secondaryParticipant .preferencessec .loadingicon img{
+  width: 24px;
+  height: 24px;
+}
+
+.rx-soft-phone .callforwardsec .tablesec::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.rx-soft-phone .secondaryParticipant .preferencessec .callforwardsec button.forwardbut:disabled{
+  opacity: 0.4;
+}
+.rx-soft-phone .callforwardsec .phonebookbox{
+  width: 100%;
+  float: left;
+}
+.rx-soft-phone .callforwardsec .phonebooknum {
+  text-align: left;
+  width: 100%;
+  float: left;
+}
+.rx-soft-phone .callforwardsec .phonebooknum .mainname{
+  text-align: left;
+  font-size: 16px;
+  color: #2d2d2d;
+  text-transform: capitalize;
+  font-weight: 400;
+}
+.rx-soft-phone .callforwardsec .phonebooknum .mainnumber{
+  font-size: 14px;
+  color: #7c87a3;
+  text-transform: capitalize;
+  font-weight: 400;
+}
+.rx-soft-phone .callforwardsec .tablesec {
+  width: 100%;
+  float: left;
+}
+.rx-soft-phone .callforwardcont {
+  width: 100%;
+  float: left;
+  max-height: 35rem;
+  min-height: 35rem;
+  overflow: auto;
+  padding-bottom: 20px;
+}
+.rx-soft-phone #basic-example {
+  max-height: 180px !important;
+}
+.rx-soft-phone .secondaryParticipant .callforwardsec .selectboxsec span {
+  font-size: 12px;
+  color: #fc2424;
+}
+.rx-soft-phone .secondaryParticipant .callforwardsec .selectboxsec .dropdown-item{
+ font-size: 12px;
+}
+.rx-soft-phone .form-control:focus{
+  background: none;
+  border: none;
+  box-shadow: none;
+}

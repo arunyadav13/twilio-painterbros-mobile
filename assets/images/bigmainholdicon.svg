@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 48 48">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_3" data-name="Rectangle 3" width="24" height="24" transform="translate(12 12)" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <g id="Group_10" data-name="Group 10" transform="translate(-343 -539)">
+    <circle id="Ellipse_2" data-name="Ellipse 2" cx="24" cy="24" r="24" transform="translate(343 539)" fill="#403e3e"/>
+    <path id="Path_2" data-name="Path 2" d="M16,21.433A1.756,1.756,0,0,1,14.5,19.5V7.929A1.756,1.756,0,0,1,16,6a1.756,1.756,0,0,1,1.5,1.929V19.5A1.756,1.756,0,0,1,16,21.433Z" transform="translate(355.059 549.449)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <path id="Path_3" data-name="Path 3" d="M8,21.433A1.756,1.756,0,0,1,6.5,19.5V7.929A1.756,1.756,0,0,1,8,6,1.756,1.756,0,0,1,9.5,7.929V19.5A1.756,1.756,0,0,1,8,21.433Z" transform="translate(355.49 549.449)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <path id="Path_4" data-name="Path 4" d="M22.549,21.433,4,4" transform="matrix(0.996, -0.087, 0.087, 0.996, 352.942, 551.655)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+  </g>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56">
+  <g id="Group_36" data-name="Group 36" transform="translate(202 -1459.75)">
+    <g id="Group_33" data-name="Group 33">
+      <g id="keypadicon" transform="translate(-202 1459.75)">
+        <circle id="Ellipse_16" data-name="Ellipse 16" cx="27.25" cy="27.25" r="27.25" transform="translate(0.75 0.75)" fill="#403e3e" stroke="#403e3e" stroke-width="1.5"/>
+      </g>
+      <path id="Path_23" data-name="Path 23" d="M20,27v3.061" transform="translate(-194 1468.034)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <path id="Path_24" data-name="Path 24" d="M17,30h6.123" transform="translate(-194.061 1468.11)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <path id="Path_25" data-name="Path 25" d="M16.36,12.408a4.077,4.077,0,0,1,7.8,1.674V20.2" transform="translate(-194.07 1467.39)" fill="none" stroke="#c43434" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <path id="Path_26" data-name="Path 26" d="M28.068,28.068" transform="translate(-194.159 1467.561)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <path id="Path_27" data-name="Path 27" d="M16,16v4.082a4.081,4.081,0,0,0,6.968,2.886" transform="translate(-194.095 1467.638)" fill="none" stroke="#5243c5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <path id="Path_29" data-name="Path 29" d="M12.9,19v.918A7.242,7.242,0,0,0,25.215,25.09" transform="translate(-194.174 1467.769)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <path id="Path_116" data-name="Path 116" d="M25.215,19v.918A7.242,7.242,0,0,1,12.9,25.09" transform="matrix(1, -0.017, 0.017, 1, -192.312, 1468.085)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    </g>
+    <g id="Rectangle_66" data-name="Rectangle 66" transform="translate(-178.8 1476.5)" fill="none" stroke="#fff" stroke-width="1.5">
+      <rect width="9.6" height="16" rx="4.8" stroke="none"/>
+      <rect x="0.75" y="0.75" width="8.1" height="14.5" rx="4.05" fill="none"/>
+    </g>
+  </g>
+</svg>

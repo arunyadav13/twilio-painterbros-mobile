@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="14.213" height="14.545" viewBox="0 0 16.213 16.545">
+  <g id="Group_1" data-name="Group 1" transform="translate(-70.359 -418.101)">
+    <g id="calllogs" transform="translate(70.969 419.365)">
+      <path id="Path_1" data-name="Path 1" d="M15.065,13.229l-1.033-1.04a1.315,1.315,0,0,0-1.869,0l-.812.817a.623.623,0,0,1-.691.14A11.123,11.123,0,0,1,7.283,10.8,11.211,11.211,0,0,1,4.955,7.415.653.653,0,0,1,5.1,6.7l.728-.732A1.362,1.362,0,0,0,5.9,4.008L4.867,2.968a1.754,1.754,0,0,0-2.492,0L1.8,3.546A2.843,2.843,0,0,0,1.052,6.09a13.954,13.954,0,0,0,3.93,7.023,13.823,13.823,0,0,0,6.98,3.954,2.8,2.8,0,0,0,2.529-.753l.574-.577A1.781,1.781,0,0,0,15.065,13.229Z" transform="translate(-1 -2.449)" fill="none" stroke="#dfdfdf" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.2"/>
+    </g>
+    <g id="up-arrow-svgrepo-com" transform="matrix(0.719, 0.695, -0.695, 0.719, 82.251, 419.117)">
+      <line id="primary" y1="6.491" x2="0.121" transform="translate(2.228 0.33)" fill="none" stroke="#dfdfdf" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4"/>
+      <path id="primary-2" data-name="primary" d="M4.587,3,2.294,0,0,3" transform="translate(0 0)" fill="none" stroke="#dfdfdf" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,21 @@
+.conversationContainer {
+  width: 100%;
+  float: left;
+}
+
+.min-height-50-vh {
+  min-height: 50vh;
+}
+
+.inboundMsg {
+  background-color: red;
+}
+
+.outBoundMsg {
+  background-color: green;
+}
+
+.min-height-40-vh {
+  /* max-height: 40vh;
+  min-height: 40vh; */
+}
