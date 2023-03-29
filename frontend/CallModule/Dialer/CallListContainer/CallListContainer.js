@@ -82,13 +82,13 @@ class CallListContainer extends React.Component {
     twilioSyncList.on("itemRemoved", async (args) => {
       console.log("SyncListItemRemoved", args);
       const { callDetails } = this.state;
-      const { setOngoingCallsCount } = this.props;
+      const { setOngoingCallsCount,setAllUnreadCounts } = this.props;
       const nodeToRemoveFromCallDetails = callDetails;
       delete nodeToRemoveFromCallDetails[args.index];
       const setOngoingCallsCountResponse = await setOngoingCallsCount(
         nodeToRemoveFromCallDetails
       );
-      window.setAllUnreadCounts("calls", true, nodeToRemoveFromCallDetails);
+      setAllUnreadCounts("calls", true, nodeToRemoveFromCallDetails);
       this.setState(
         {
           ...this.state,
@@ -138,8 +138,9 @@ class CallListContainer extends React.Component {
 
   updateCallDetails = (indexToUpdate, fetchedData) => {
     const { callDetails } = this.state;
+    const { setAllUnreadCounts } = this.props;
     this.state.callDetails[indexToUpdate] = { ...fetchedData };
-    window.setAllUnreadCounts("calls", true, callDetails);
+    setAllUnreadCounts("calls", true, callDetails);
     this.setState(
       {
         ...this.state

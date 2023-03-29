@@ -4,6 +4,8 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import { SyncClient } from "twilio-sync";
 import { getDeviceAccessToken } from "../Dialer/assets/library/api";
 import Dialer from "../Dialer/Dialer";
+import { SECONDARY_DEVICE_INFO_MESSAGE } from "../Dialer/assets/library/constant";
+
 
 class CallButton extends React.Component {
     constructor(props) {
@@ -11,11 +13,11 @@ class CallButton extends React.Component {
         this.state = {
             showCallListContainer: false,
             user: {
-                number: "+13853672560",
+                number: "+14153297580",
                 tenant_id: "painter-bros",
-                subtenant_id: "4654f6cf-6a9a-4b48-9db5-5c9286f018e9"
+                subtenant_id: "da58532b-ac74-497d-8935-d0e891cfe21f"
             },
-            isTwilioDeviceInitialized: false,
+            isTwilioDeviceInitialized: true,
             shouldDisplayPopup: false,
             isTwilioDeviceInitializationMessage: "",
             deviceAccessToken: null,
@@ -83,8 +85,9 @@ class CallButton extends React.Component {
     };
 
     createOrOpenSyncDocument = () => {
-        const { user } = this.props;
+        const { user } = this.state;
         const { syncClient } = this.state;
+        if (!user) return;
         syncClient
             .document(user.identity)
             .then((document) => {
@@ -137,6 +140,7 @@ class CallButton extends React.Component {
             });
     };
     updateDeviceMessage = (msg) => {
+        console.log("msg",msg);
         this.setState({
             ...this.state,
             isTwilioDeviceInitializationMessage: msg,
@@ -146,7 +150,8 @@ class CallButton extends React.Component {
     };
     createSyncClient = () => {
         const { syncAccessToken } = this.state;
-
+        debugger;
+        console.log("syncAccessToken:", syncAccessToken);
         const syncClient = new SyncClient(syncAccessToken);
 
         syncClient.on("connectionStateChanged", (newState) => {
@@ -188,6 +193,8 @@ class CallButton extends React.Component {
             isTwilioDeviceInitializationMessage,
             shouldDisplayPopup
         } = this.state;
+        console.log(showCallListContainer,isTwilioDeviceInitializationMessage,shouldDisplayPopup);
+
         debugger;
         this.setState({
             ...this.state,
@@ -210,6 +217,7 @@ class CallButton extends React.Component {
         });
     };
     checkTwilioDeviceInitializeStatus = (currentStatus) => {
+        console.log("checkTwilioDeviceInitializeStatus:",currentStatus)
         debugger;
         this.setState({
             ...this.state,
@@ -295,6 +303,8 @@ class CallButton extends React.Component {
             syncDocument,
             shouldDisplayRedDot
         } = this.state;
+        console.log("isTwilioDeviceInitialized:",isTwilioDeviceInitialized);
+        console.log("showCallListContainer:",showCallListContainer);
         const { user } = this.state;
         return (
             <View>
@@ -328,6 +338,7 @@ class CallButton extends React.Component {
                         updateDeviceMessage={this.updateDeviceMessage}
                         shouldDisplayRedDot={shouldDisplayRedDot}
                         updateSyncClient={this.updateSyncClient}
+                        setAllUnreadCounts={this.setAllUnreadCounts}
                     />
                 )}
             </View>

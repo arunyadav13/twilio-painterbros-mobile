@@ -3,6 +3,7 @@ import { Button, View, Image, Text } from "react-native";
 import ConversationContainer from "../ConversationContainer/ConversationContainer";
 import searchicon from "../../../CallModule/Dialer/CallListContainer/assets/images/searchicon.svg";
 const { REACT_APP_STATIC_ASSETS_BASE_URL } = process.env;
+import Icon from "react-native-vector-icons/FontAwesome5";
 
 class ChatButton extends React.Component {
   constructor(props) {
@@ -128,17 +129,18 @@ class ChatButton extends React.Component {
                 onChange={(e) => this.filterConversation(e)}
               ></Text>
               <Image
-                source={`${REACT_APP_STATIC_ASSETS_BASE_URL}${searchicon}`}
+                source={'https://painterbros-stage.regalixtools.com/static/media/searchicon.f24f470b1244d22ce6332925173d48d6.svg'}
               />
             </View>
           )}
           {!isInDetailView && (
-            <Button
-              className="removecolorbut plusicon"
-              onPress={() => alterMenu(1, "conversation")}
-            >
-              <p>&#43;</p>
-            </Button>
+            // <Button
+            //   className="removecolorbut plusicon"
+            //   onPress={() => alterMenu(1, "conversation")}
+            //   title={'plus'}
+            // >
+            // </Button>
+            <Icon onPress={() => alterMenu(1, "conversation")} name={"plus"} ></Icon>
           )}
         </View>
         {Object.keys(allConversations).length > 0 && (
@@ -154,7 +156,7 @@ class ChatButton extends React.Component {
           </View>
         )}
         {Object.values(allConversations).length === 0 && (
-          <View className="noresult">No results found</View>
+          <View className="noresult"><Text>No results found</Text></View>
         )}
       </View>
     );

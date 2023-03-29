@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, View, Image, Text } from "react-native";
+import { Button, View, Image, Text, TextInput, ScrollView,StyleSheet } from "react-native";
 import moment from "moment";
 import { fancyTimeFormat } from "../CallListContainer/assets/library/helper";
 import searchicon from "../CallListContainer/assets/images/searchicon.svg";
@@ -12,6 +12,7 @@ import voicemail from "./assets/images/voicemail.svg";
 import playbutton from "./assets/images/calllogplayicon.svg";
 import pause from "../CallListContainer/assets/images/stopicon.svg";
 const { REACT_APP_STATIC_ASSETS_BASE_URL } = process.env;
+import Icon from "react-native-vector-icons/FontAwesome5";
 
 class CallLogs extends React.Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class CallLogs extends React.Component {
       audioElementIndex: "",
       filteredCallLogs: [],
       audioDuration: null,
-      audioCurrentTime: null
+      audioCurrentTime: null,
     };
   }
 
@@ -32,7 +33,7 @@ class CallLogs extends React.Component {
     this.setState({
       ...this.state,
       allLogs: callLogDetails,
-      filteredCallLogs: callLogDetails
+      filteredCallLogs: callLogDetails,
     });
   }
 
@@ -47,7 +48,7 @@ class CallLogs extends React.Component {
       this.setState({
         ...this.state,
         allLogs: nextprops.callLogDetails,
-        filteredCallLogs: nextprops.callLogDetails
+        filteredCallLogs: nextprops.callLogDetails,
       });
     }
 
@@ -59,7 +60,7 @@ class CallLogs extends React.Component {
         this.setState({
           ...this.state,
           allLogs: [...nextprops.callLogDetails],
-          filteredCallLogs: [...nextprops.callLogDetails]
+          filteredCallLogs: [...nextprops.callLogDetails],
         });
       }
     });
@@ -109,7 +110,7 @@ class CallLogs extends React.Component {
           audio: null,
           isPlaying: false,
           audioCurrentTime: null,
-          audioDuration: null
+          audioDuration: null,
         },
         () => alterButtonDiableProperty(false)
       );
@@ -120,7 +121,7 @@ class CallLogs extends React.Component {
         {
           ...this.state,
           audio: new Audio(playBackAudioUrl),
-          audioElementIndex: elementIndex
+          audioElementIndex: elementIndex,
         },
         () => {
           this.state.audio.onloadedmetadata = () => {
@@ -131,7 +132,7 @@ class CallLogs extends React.Component {
               audioDuration:
                 Math.floor(this.state.audio.duration / 60) +
                 ":" +
-                ("0" + Math.floor(this.state.audio.duration % 60)).slice(-2)
+                ("0" + Math.floor(this.state.audio.duration % 60)).slice(-2),
             });
           };
           this.state.audio.onended = () => {
@@ -142,7 +143,7 @@ class CallLogs extends React.Component {
                 audio: null,
                 audioElementIndex: "",
                 audioCurrentTime: null,
-                audioDuration: null
+                audioDuration: null,
               },
               () => alterButtonDiableProperty(false)
             );
@@ -186,7 +187,7 @@ class CallLogs extends React.Component {
     }
     this.setState({
       ...this.state,
-      filteredCallLogs: [...filteredConversation]
+      filteredCallLogs: [...filteredConversation],
     });
   };
 
@@ -197,7 +198,7 @@ class CallLogs extends React.Component {
       audio,
       audioElementIndex,
       audioCurrentTime,
-      audioDuration
+      audioDuration,
     } = this.state;
     const {
       handleDialer,
@@ -205,197 +206,180 @@ class CallLogs extends React.Component {
       shouldDisableButton,
       activeCallCount,
       syncCallLogconnectionProps,
-      numbersInCalls
+      numbersInCalls,
     } = this.props;
     return (
-      <View className="secondaryParticipant">
-        <View className="mainboxheader">
-          <View className="popupboxclose" onClick={() => handleDialer()}>
-            <span>&#x00d7;</span>
+      <View style={{ flex: 1, flexDirection: "row" }} >
+        <View>
+          {/* <View className="popupboxclose" onClick={() => handleDialer()}>
+            <Text>&#x00d7;</Text>
           </View>
           <View className="contactuslist">
-            <h4>Call History</h4>
-          </View>
+            <Text>Call History</Text>
+          </View> */}
         </View>
         <View className="searchboxsec">
-          <input
+          <TextInput
             type="text"
             name="contactSearchInput"
             id="contactSearchInput"
             placeholder="Search Call Logs"
             onChange={(e) => this.filterContact(e)}
           />
-          <Image
-            source={`${REACT_APP_STATIC_ASSETS_BASE_URL}${searchicon}`}
-          />
         </View>
-        <View className="phonebooklist phonebooklist callloglistsec">
-          {syncCallLogconnectionProps.status !== "connected" && (
-            <View className="errorMessage">
-              {syncCallLogconnectionProps.message}
-            </View>
-          )}
-          {filteredCallLogs.length > 0 &&
-            [...filteredCallLogs].reverse().map((logElement, index) => {
-              return (
-                <View
-                  className={`phonebookbox ${!logElement.isRead && "isRead"}`}
-                  key={index}
-                >
-                  <View className="firsttext">
-                    <View className="Nameletters">
-                      <Image
-                        style={{
-                          margin: "0"
-                        }}
-                        source={`${REACT_APP_STATIC_ASSETS_BASE_URL}${this.getCallIcon(
-                          logElement
-                        )}`}
-                      />
+        <ScrollView>
+          <View className="phonebooklist phonebooklist callloglistsec">
+            {syncCallLogconnectionProps.status !== "connected" && (
+              <View className="errorMessage">
+                {syncCallLogconnectionProps.message}
+              </View>
+            )}
+            {filteredCallLogs.length > 0 &&
+              [...filteredCallLogs].reverse().map((logElement, index) => {
+                return (
+                  <View
+                    className={`phonebookbox ${!logElement.isRead && "isRead"}`}
+                    key={index}
+                  >
+                    <View className="firsttext">
+                      <View className="Nameletters">
+                        <Image
+                          style={{
+                            margin: 0,
+                          }}
+                          source={`${REACT_APP_STATIC_ASSETS_BASE_URL}${this.getCallIcon(
+                            logElement
+                          )}`}
+                        />
+                      </View>
                     </View>
-                  </View>
-                  <View className="phonebooknum">
-                    <span
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="bottom"
-                      title={this.getContactDetails(logElement).name}
-                    >
-                      {this.getContactDetails(logElement).name}
-                      {/* <span className="phonebooklead">Lead</span> */}
-                    </span>
-                    <span>{this.getContactDetails(logElement).number}</span>
+                    <View className="phonebooknum">
+                      <Text
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="bottom"
+                        title={this.getContactDetails(logElement).name}
+                      >
+                        {this.getContactDetails(logElement).name}
+                        {/* <span className="phonebooklead">Lead</span> */}
+                      </Text>
+                      <Text>{this.getContactDetails(logElement).number}</Text>
 
-                    <p>
-                      {moment
-                        .utc(logElement.timestamp)
-                        .local()
-                        .format("MMM DD YYYY h:mm A")}
-                      {logElement.duration > 0 && (
-                        <span>
-                          &nbsp;|&nbsp;{fancyTimeFormat(logElement.duration)}{" "}
-                        </span>
-                      )}
-                    </p>
-                    {logElement.callStatus === "missed" &&
-                      logElement.forwarding !== null && (
-                        <View className="forwardcalllist">
-                          {logElement.forwarding.from !== "null" && (
-                            <p>
-                              Forwarded from&nbsp;
-                              {logElement.forwarding.from.name}
-                            </p>
-                          )}
-                          {logElement.forwarding.to !== "null" && (
-                            <p>
-                              Forwarded to&nbsp; {logElement.forwarding.to.name}
-                            </p>
-                          )}
+                      <Text>
+                        {moment
+                          .utc(logElement.timestamp)
+                          .local()
+                          .format("MMM DD YYYY h:mm A")}
+                        {logElement.duration > 0 && (
+                          <Text>
+                            &nbsp;|&nbsp;{fancyTimeFormat(logElement.duration)}{" "}
+                          </Text>
+                        )}
+                      </Text>
+                      {logElement.callStatus === "missed" &&
+                        logElement.forwarding !== null && (
+                          <View className="forwardcalllist">
+                            {logElement.forwarding.from !== "null" && (
+                              <Text>
+                                Forwarded from&nbsp;
+                                {logElement.forwarding.from.name}
+                              </Text>
+                            )}
+                            {logElement.forwarding.to !== "null" && (
+                              <Text>
+                                Forwarded to&nbsp;{" "}
+                                {logElement.forwarding.to.name}
+                              </Text>
+                            )}
 
-                          {logElement.forwarding.answewredBy !== "null" && (
-                            <p>
-                              Answered by &nbsp;
-                              {logElement.forwarding.answewredBy.name}
-                            </p>
-                          )}
+                            {logElement.forwarding.answewredBy !== "null" && (
+                              <Text>
+                                Answered by &nbsp;
+                                {logElement.forwarding.answewredBy.name}
+                              </Text>
+                            )}
 
-                          {logElement.forwarding.voicemail !== "null" && (
-                            <p>
-                              Voicemail sent to&nbsp;
-                              {logElement.forwarding.voicemail.name}
-                            </p>
-                          )}
-                        </View>
-                      )}
-                  </View>
+                            {logElement.forwarding.voicemail !== "null" && (
+                              <Text>
+                                Voicemail sent to&nbsp;
+                                {logElement.forwarding.voicemail.name}
+                              </Text>
+                            )}
+                          </View>
+                        )}
+                    </View>
 
-                  <View className="phonebookicon">
-                    {logElement.forwarding !== null &&
-                      logElement.forwarding.voicemail !== null && 
-                      logElement.forwarding.voicemail.url !== null && (
-                        <View className="voicemailiconsec">
-                          <Button
-                            id={logElement.callSId}
-                            className="removecolorbut pauseplayicon smallcallicon"
-                            onClick={(e) => {
-                              alterButtonDiableProperty(true);
-                              this.playAudio(
-                                logElement.forwarding.voicemail.url,
-                                logElement.callSId
-                              );
-                            }}
-                            disabled={
-                              shouldDisableButton &&
-                              audio !== null &&
-                              isPlaying &&
-                              logElement.callSId !== audioElementIndex
-                            }
-                          >
-                            <Image
-                              source={`${REACT_APP_STATIC_ASSETS_BASE_URL}${
+                    <View className="phonebookicon">
+                      {logElement.forwarding !== null &&
+                        logElement.forwarding.voicemail !== null &&
+                        logElement.forwarding.voicemail.url !== null && (
+                          <View className="voicemailiconsec">
+                            <Icon
+                              name={
                                 isPlaying &&
                                 logElement.callSId === audioElementIndex
-                                  ? pause
-                                  : playbutton
-                              }`}
+                                  ? "pause"
+                                  : "play"
+                              }
+                              id={logElement.callSId}
+                              disabled={
+                                shouldDisableButton &&
+                                audio !== null &&
+                                isPlaying &&
+                                logElement.callSId !== audioElementIndex
+                              }
                             />
-                          </Button>
-                          <span className="voicemailaudioduration">
-                            {audio !== null &&
-                              audioElementIndex === logElement.callSId &&
-                              isPlaying &&
-                              `${audioCurrentTime} / ${audioDuration}`}
-                          </span>
-                        </View>
-                      )}
-                    <Button
-                      id={logElement.callSId}
-                      className="removecolorbut smallcallicon"
-                      onClick={(e) => {
-                        alterButtonDiableProperty(true);
-                        window.startCreateatingConversation(
-                          this.getContactDetails(logElement).number,
-                          this.getContactDetails(logElement),
-                          true
-                        );
-                      }}
-                      disabled={isPlaying || shouldDisableButton}
-                    >
-                      <Image
-                        source={`${REACT_APP_STATIC_ASSETS_BASE_URL}${smallmessageicon}`}
+                            <Text className="voicemailaudioduration">
+                              {audio !== null &&
+                                audioElementIndex === logElement.callSId &&
+                                isPlaying &&
+                                `${audioCurrentTime} / ${audioDuration}`}
+                            </Text>
+                          </View>
+                        )}
+                      <Icon
+                        name={"envelope"}
+                        id={logElement.callSId}
+                        onClick={(e) => {
+                          alterButtonDiableProperty(true);
+                          window.startCreateatingConversation(
+                            this.getContactDetails(logElement).number,
+                            this.getContactDetails(logElement),
+                            true
+                          );
+                        }}
+                        disabled={isPlaying || shouldDisableButton}
                       />
-                    </Button>
 
-                    <Button
-                      id={logElement.callSId}
-                      className="removecolorbut smallcallicon"
-                      onClick={(e) => {
-                        alterButtonDiableProperty(true);
-                        window.makeOutBoundCall(
-                          this.getContactDetails(logElement).number,
-                          this.getContactDetails(logElement).name
-                        );
-                      }}
-                      disabled={
-                        isPlaying ||
-                        shouldDisableButton ||
-                        activeCallCount > 0 ||
-                        numbersInCalls.includes(
-                          this.getContactDetails(logElement).number
-                        )
-                      }
-                    >
-                      <Image
-                        source={`${REACT_APP_STATIC_ASSETS_BASE_URL}${smallcallicon}`}
-                      />
-                    </Button>
+                      <Icon
+                        name={"phone"}
+                        id={logElement.callSId}
+                        onClick={(e) => {
+                          alterButtonDiableProperty(true);
+                          window.makeOutBoundCall(
+                            this.getContactDetails(logElement).number,
+                            this.getContactDetails(logElement).name
+                          );
+                        }}
+                        disabled={
+                          isPlaying ||
+                          shouldDisableButton ||
+                          activeCallCount > 0 ||
+                          numbersInCalls.includes(
+                            this.getContactDetails(logElement).number
+                          )
+                        }
+                      ></Icon>
+                    </View>
                   </View>
-                </View>
-              );
-            })}
-          {filteredCallLogs.length === 0 && (
-            <View className="noresult">No results found</View>
-          )}
-        </View>
+                );
+              })}
+            {filteredCallLogs.length === 0 && (
+              <View className="noresult">
+                <Text>No results found</Text>
+              </View>
+            )}
+          </View>
+        </ScrollView>
       </View>
     );
   }

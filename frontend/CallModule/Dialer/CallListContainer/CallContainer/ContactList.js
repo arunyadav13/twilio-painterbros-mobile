@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, View, Image, Text } from "react-native";
+import { Button, View, Image, Text,TextInput } from "react-native";
 import { searchPeople } from "../assets/library/api";
 import searchicon from "../assets/images/searchicon.svg";
 import smallcallicon from "../assets/images/smallcallicon.svg";
@@ -8,6 +8,7 @@ import smallmessageicon from "../assets/images/smallmessageicon.svg";
 import loadingGif from "../../../CallButton/assets/images/loading-gif.gif";
 import { displayContactInitial } from "../assets/library/helper";
 const { REACT_APP_STATIC_ASSETS_BASE_URL } = process.env;
+import Icon from "react-native-vector-icons/FontAwesome5";
 
 class ContactList extends React.Component {
   constructor(props) {
@@ -174,11 +175,11 @@ class ContactList extends React.Component {
             <Text>&#x00d7;</Text>
           </View>
           <View className="contactuslist">
-            <h4>Contacts</h4>
+            <Text>Contacts</Text>
           </View>
         </View>
         <View className="searchboxsec">
-          <input
+          <TextInput
             type="text"
             name="contactSearchInput"
             id="contactSearchInput"
@@ -189,17 +190,14 @@ class ContactList extends React.Component {
               clearTimeout(timerWillStart);
             }}
           />
-          <Image
-            alt=""
-            source={`${REACT_APP_STATIC_ASSETS_BASE_URL}${searchicon}`}
-          />
+          <Icon name={"search"} ></Icon>
         </View>
         <View className="phonebooklist phonebooklist">
           {isApiFetching && (
             <Image
               alt=""
               className="logingicon"
-              source={`${REACT_APP_STATIC_ASSETS_BASE_URL}${loadingGif}`}
+              source={'https://painterbros-stage.regalixtools.com/CallButton/assets/images/loading-gif.gif'}
             />
           )}
           {!isApiFetching &&
@@ -254,8 +252,9 @@ class ContactList extends React.Component {
                     >
                       <Image
                         alt=""
-                        source={`${REACT_APP_STATIC_ASSETS_BASE_URL}${smallmessageicon}`}
+                        source={'https://painterbros-stage.regalixtools.com/static/media/smallmessageicon.b9f11a0ad71342fd8168b44722542a5a.svg'}
                       />
+                      {/* <Icon name={"envelope"} ></Icon> */}
                     </Button>
 
                     <Button
@@ -276,8 +275,9 @@ class ContactList extends React.Component {
                     >
                       <Image
                         alt=""
-                        source={`${REACT_APP_STATIC_ASSETS_BASE_URL}${smallcallicon}`}
+                        source={'https://painterbros-stage.regalixtools.com/static/media/smallcallicon.89f8f23e3a7c9aa58c9443af0485b462.svg'}
                       />
+                      {/* <Icon name={"phone"} ></Icon> */}
                     </Button>
                   </View>
                 </View>
@@ -295,7 +295,7 @@ class ContactList extends React.Component {
           )}
 
           {!isApiFetching && contactList.length === 0 && (
-            <View className="noresult ">No results found</View>
+            <View className="noresult "><Text>No results found</Text></View>
           )}
         </View>
       </View>

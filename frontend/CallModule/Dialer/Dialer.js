@@ -1,9 +1,9 @@
 import React from "react";
 import moment from "moment";
 import { SyncClient } from "twilio-sync";
-import { View } from "react-native";
+import { View, Text } from "react-native";
 // import { Device } from "@twilio/voice-sdk";
-import { Voice } from '@twilio/voice-react-native-sdk';
+import { Voice } from "@twilio/voice-react-native-sdk";
 import { Client } from "@twilio/conversations";
 import { SECONDARY_DEVICE_INFO_MESSAGE } from "./assets/library/constant";
 import CallListContainer from "./CallListContainer/CallListContainer";
@@ -20,15 +20,14 @@ import {
   getAllSubscribedConversations,
   sanitizeConversationStructure,
   checkPhoneNumberBelongsToSameAccount,
-  getIdenticalConversations
+  getIdenticalConversations,
 } from "../../Conversation/Chat/ConversationContainer/assets/helper";
 import {
   countTheCallsActive,
-  getSenderName
+  getSenderName,
 } from "./CallListContainer/assets/library/helper";
 import { getDeviceAccessToken } from "./assets/library/api";
 
-// import "bootstrap/dist/css/bootstrap.min.css";
 const { REACT_APP_STATIC_ASSETS_BASE_URL } = process.env;
 
 class Dialer extends React.Component {
@@ -40,7 +39,7 @@ class Dialer extends React.Component {
       callLogAccessToken,
       deviceId,
       sync_list_call_obj_template,
-      syncClient
+      syncClient,
     } = this.props;
     this.state = {
       deviceId: deviceId,
@@ -50,14 +49,14 @@ class Dialer extends React.Component {
       sync_list_call_obj_template: sync_list_call_obj_template,
       currentConnection: null,
       chatAccessToken: chatAccessToken,
-      menuItem: 4,
+      menuItem: 5,
       conversationClient: null,
       currentConversationMessages: [],
       reservedConnections: {},
       currentTime: Date.now(),
       activeCallCount: 0,
       conversation: {
-        completeList: {}
+        completeList: {},
       },
       existingConversationId: null,
       actionType: "",
@@ -68,9 +67,9 @@ class Dialer extends React.Component {
       isManuallyCreated: false,
       syncCallLogconnectionProps: {
         status: "connected",
-        message: ""
+        message: "",
       },
-      numbersInCalls: []
+      numbersInCalls: [],
     };
     this.deviceAccessToken = deviceAccessToken;
     this.callLogAccessToken = callLogAccessToken;
@@ -138,7 +137,7 @@ class Dialer extends React.Component {
     console.log("Initializing Twilio Device");
     const twilioDeviceOptions = {
       allowIncomingWhileBusy: true,
-      closeProtection: true
+      closeProtection: true,
     };
     // this.twilioDevice = new Device(this.deviceAccessToken, twilioDeviceOptions);
     this.twilioDevice = new Voice();
@@ -154,8 +153,8 @@ class Dialer extends React.Component {
           ...this.state,
           reservedConnections: {
             ...this.state.reservedConnections,
-            ...connToReserved
-          }
+            ...connToReserved,
+          },
         },
         () => this.onIncomingCall(conn)
       );
@@ -177,7 +176,7 @@ class Dialer extends React.Component {
         this.twilioDevice.removeAllListeners([
           "incoming",
           "error",
-          "tokenWillExpire"
+          "tokenWillExpire",
         ]);
         this.twilioDevice.destroy();
 
@@ -208,12 +207,12 @@ class Dialer extends React.Component {
       this.setState(
         {
           ...this.state,
-          conversationClient: this.conversationClient
+          conversationClient: this.conversationClient,
         },
         async () => {
           await this.getAndSetAllConversations();
           client.on("conversationAdded", (conversation) => {
-            console.log("conversationAdded", conversation);
+            //console.log("conversationAdded", conversation);
             this.prepareNewConversationNode(conversation);
           });
         }
@@ -239,8 +238,8 @@ class Dialer extends React.Component {
           ...this.state,
           syncCallLogconnectionProps: {
             message: "",
-            status: newState
-          }
+            status: newState,
+          },
         });
       }
     });
@@ -266,8 +265,8 @@ class Dialer extends React.Component {
           ...this.state,
           syncCallLogconnectionProps: {
             message: syncCallLogClientRetryingMsg,
-            status: "error"
-          }
+            status: "error",
+          },
         });
       }
     });
@@ -278,6 +277,7 @@ class Dialer extends React.Component {
       const { conversationClient, isManuallyCreated } = this.state;
       const { user } = this.props;
       const newParticipants = await conversation.getParticipants();
+      // console.log("newParticipants:",newParticipants);
       const tempConversation = {
         id: "",
         twilio_sid: conversation.sid,
@@ -298,9 +298,9 @@ class Dialer extends React.Component {
               type: null,
               status: 1,
               sms_consent:
-                conversation.attributes.participants.sender.sms_consent
+                conversation.attributes.participants.sender.sms_consent,
             },
-            status: "ACTIVE"
+            status: "ACTIVE",
           },
           {
             id: "",
@@ -317,10 +317,10 @@ class Dialer extends React.Component {
               type: null,
               status: 1,
               sms_consent:
-                conversation.attributes.participants.receiver.sms_consent
+                conversation.attributes.participants.receiver.sms_consent,
             },
-            status: "ACTIVE"
-          }
+            status: "ACTIVE",
+          },
         ],
         messages: [],
         last_message: {
@@ -338,17 +338,17 @@ class Dialer extends React.Component {
               number: "",
               name: "",
               type: null,
-              status: 1
+              status: 1,
             },
-            status: "ACTIVE"
+            status: "ACTIVE",
           },
           twilio_sid: "",
           body: "",
           media: null,
           status: "ACTIVE",
-          created_at: ""
+          created_at: "",
         },
-        status: "ACTIVE"
+        status: "ACTIVE",
       };
 
       const conversationDataStructure = await sanitizeConversationStructure(
@@ -364,9 +364,9 @@ class Dialer extends React.Component {
             ...this.state.conversation,
             completeList: {
               ...this.state.conversation.completeList,
-              ...conversationDataStructure
-            }
-          }
+              ...conversationDataStructure,
+            },
+          },
         },
         () => {
           this.subscribeToClientMessaggeAddedOrUpdated();
@@ -410,13 +410,13 @@ class Dialer extends React.Component {
           this.state.conversation.completeList[
             msg.message.conversation.sid
           ].messages[indexNumber].delivery = {
-            ...msg.message.aggregatedDeliveryReceipt.state
+            ...msg.message.aggregatedDeliveryReceipt.state,
           };
           this.setState({
             ...this.state,
             conversation: {
-              ...this.state.conversation
-            }
+              ...this.state.conversation,
+            },
           });
         }
       }
@@ -424,10 +424,10 @@ class Dialer extends React.Component {
 
     conversationClient.on("messageAdded", (message) => {
       console.log("messageAdded.....", message);
-      const { user } = this.props;
+      const { user, setAllUnreadCounts } = this.props;
 
       if (user.identity.toString() !== message.author.toString()) {
-        window.setAllUnreadCounts("messages", true);
+        setAllUnreadCounts("messages", true);
       }
 
       const { conversation } = this.state;
@@ -452,12 +452,12 @@ class Dialer extends React.Component {
               ...this.state.conversation.completeList,
               [message.conversation.sid]: {
                 ...this.state.conversation.completeList[
-                message.conversation.sid
+                  message.conversation.sid
                 ],
-                clientConversation: message.conversation
-              }
-            }
-          }
+                clientConversation: message.conversation,
+              },
+            },
+          },
         },
         () => {
           const tempMessageStructure = {
@@ -484,8 +484,8 @@ class Dialer extends React.Component {
                   message.participantSid
                 ).name,
                 type: null,
-                status: 1
-              }
+                status: 1,
+              },
             },
 
             twilio_sid: message.sid,
@@ -500,8 +500,8 @@ class Dialer extends React.Component {
               delivered: "none",
               read: "none",
               failed: "none",
-              undelivered: "none"
-            }
+              undelivered: "none",
+            },
           };
 
           if (conversation.completeList[message.conversation.sid]) {
@@ -513,26 +513,26 @@ class Dialer extends React.Component {
                   ...this.state.conversation.completeList,
                   [`${message.conversation.sid}`]: {
                     ...this.state.conversation.completeList[
-                    `${message.conversation.sid}`
+                      `${message.conversation.sid}`
                     ],
                     messages: [
                       ...this.state.conversation.completeList[
-                      `${message.conversation.sid}`
+                        `${message.conversation.sid}`
                       ]["messages"],
-                      tempMessageStructure
+                      tempMessageStructure,
                     ],
                     last_message: {
                       ...this.state.conversation.completeList[
-                      `${message.conversation.sid}`
+                        `${message.conversation.sid}`
                       ]["last_message"],
                       body: message.body,
                       created_at: moment
                         .utc(message.dateCreated)
-                        .format("YYYY-MM-DD hh:mm:ss")
-                    }
-                  }
-                }
-              }
+                        .format("YYYY-MM-DD hh:mm:ss"),
+                    },
+                  },
+                },
+              },
             });
           }
         }
@@ -542,11 +542,12 @@ class Dialer extends React.Component {
 
   getAndSetAllConversations = async () => {
     const { user } = this.props;
+    // console.log("user in getAndSetAllConversations:",user);
     const { conversationClient } = this.state;
     const allSubscribedConversations = await getAllSubscribedConversations(
       user.identity
     );
-
+    // console.log("user in allSubscribedConversations:",allSubscribedConversations);
     if (allSubscribedConversations.data.length > 0) {
       const conversationDataStructure = await sanitizeConversationStructure(
         allSubscribedConversations.data,
@@ -557,8 +558,8 @@ class Dialer extends React.Component {
         {
           ...this.state,
           conversation: {
-            completeList: { ...conversationDataStructure }
-          }
+            completeList: { ...conversationDataStructure },
+          },
         },
         () => this.subscribeToClientMessaggeAddedOrUpdated()
       );
@@ -594,7 +595,7 @@ class Dialer extends React.Component {
                 name: user.name,
                 number: user.number,
                 identity: user.identity,
-                sms_consent: true
+                sms_consent: true,
               },
               receiver: {
                 name: checkPhoneNumberBelongsToSameAccountResponse.data.name
@@ -605,18 +606,18 @@ class Dialer extends React.Component {
                   .number
                   ? checkPhoneNumberBelongsToSameAccountResponse.data.identity
                   : "",
-                sms_consent: true
-              }
-            }
+                sms_consent: true,
+              },
+            },
           },
 
           friendlyName: friendlyName,
-          uniqueName: friendlyName
+          uniqueName: friendlyName,
         });
         this.setState({
           ...this.state,
           currentConversation: conversation,
-          isManuallyCreated
+          isManuallyCreated,
         });
         await conversation.add(user.identity);
 
@@ -642,7 +643,7 @@ class Dialer extends React.Component {
         existingConversationId: conversation.twilio_sid
           ? conversation.twilio_sid
           : [...Object.values(conversation)][0]["twilio_sid"],
-        isManuallyCreated: false
+        isManuallyCreated: false,
       },
       () => {
         const { handleDialer } = this.props;
@@ -656,7 +657,7 @@ class Dialer extends React.Component {
     this.setState({
       ...this.state,
       currentConversation: null,
-      currentConversationMessages: []
+      currentConversationMessages: [],
     });
   };
 
@@ -690,7 +691,7 @@ class Dialer extends React.Component {
       this.syncClient
         .list({
           id: user.identity,
-          mode: "open_or_create"
+          mode: "open_or_create",
         })
         .then((syncList) => {
           this.setState({ ...this.state, twilioSyncList: syncList }, () =>
@@ -701,12 +702,12 @@ class Dialer extends React.Component {
   };
 
   createCallLogSyncList = () => {
-    const { user } = this.props;
+    const { user, setAllUnreadCounts } = this.props;
 
     this.syncCallLogClient
       .list({
         id: user.identity,
-        mode: "open_or_create"
+        mode: "open_or_create",
       })
       .then((callList) => {
         this.setState({ ...this.state, callLogSyncList: callList }, () => {
@@ -717,7 +718,7 @@ class Dialer extends React.Component {
                 args.item.data.callStatus
               )
             ) {
-              window.setAllUnreadCounts("callLogs", true);
+              setAllUnreadCounts("callLogs", true);
             }
 
             this.updateCallDetails(args.item.data, args.item.index);
@@ -746,7 +747,7 @@ class Dialer extends React.Component {
     });
     this.setState({
       ...this.state,
-      callLogDetails: [...this.state.callLogDetails]
+      callLogDetails: [...this.state.callLogDetails],
     });
   };
 
@@ -754,7 +755,7 @@ class Dialer extends React.Component {
     logData.syncItemIndex = syncItemIndex;
     this.setState({
       ...this.state,
-      callLogDetails: [...this.state.callLogDetails, logData]
+      callLogDetails: [...this.state.callLogDetails, logData],
     });
   };
 
@@ -816,14 +817,14 @@ class Dialer extends React.Component {
             params: {
               tenant_id: user.tenant_id,
               subtenant_id: user.subtenant_id,
-              user_identity: user.identity
-            }
+              user_identity: user.identity,
+            },
           });
           this.setState(
             {
               ...this.state,
               currentConnection: conn,
-              menuItem: 2
+              menuItem: 2,
             },
             () => {
               const { currentConnection } = this.state;
@@ -861,7 +862,7 @@ class Dialer extends React.Component {
 
     // source participant (caller) node
     const participant_obj_1 = {
-      ...sync_list_call_obj_template.conference.participants[0]
+      ...sync_list_call_obj_template.conference.participants[0],
     };
     participant_obj_1.type = "source";
     participant_obj_1.name = user.name;
@@ -872,7 +873,7 @@ class Dialer extends React.Component {
 
     // TODO: get the participant list from props, use map/loop and push to "sync_list_call_obj"
     const participant_obj_2 = {
-      ...sync_list_call_obj_template.conference.participants[0]
+      ...sync_list_call_obj_template.conference.participants[0],
     };
     participant_obj_2.type = "destination";
     participant_obj_2.name = destinationName;
@@ -890,6 +891,7 @@ class Dialer extends React.Component {
 
   alterMenu = (itemNo, actionType = "") => {
     const { existingConversationId } = this.state;
+    const { setAllUnreadCounts } = this.props;
     this.setState(
       {
         ...this.state,
@@ -897,7 +899,7 @@ class Dialer extends React.Component {
         currentTime: Date.now(),
         existingConversationId:
           actionType === "" ? null : existingConversationId,
-        actionType
+        actionType,
       },
       () => {
         let itemType = "";
@@ -907,7 +909,7 @@ class Dialer extends React.Component {
         if (itemNo === 2) {
           itemType = "messages";
         }
-        window.setAllUnreadCounts(itemType, false);
+        setAllUnreadCounts(itemType, false);
       }
     );
   };
@@ -917,7 +919,7 @@ class Dialer extends React.Component {
     this.setState(
       {
         ...this.state,
-        currentConnection: reservedConnections[callerNumber]
+        currentConnection: reservedConnections[callerNumber],
       },
       async () => {
         const updateSyncDocumentResponse = await this.updateSyncDocument();
@@ -937,7 +939,7 @@ class Dialer extends React.Component {
     this.setState(
       {
         ...this.state,
-        reservedConnections: { ...this.state.reservedConnections }
+        reservedConnections: { ...this.state.reservedConnections },
       },
       () => this.alterButtonDiableProperty(false)
     );
@@ -970,7 +972,7 @@ class Dialer extends React.Component {
             ...this.state,
             activeCallCount: activeCallCount > 0,
             callDetails: { ...callDetails },
-            numbersInCalls: tempNumbers
+            numbersInCalls: tempNumbers,
           },
           () => resolve(true)
         );
@@ -981,7 +983,7 @@ class Dialer extends React.Component {
             activeCallCount: 0,
             shouldDisableButton: false,
             callDetails: {},
-            numbersInCalls: []
+            numbersInCalls: [],
           },
           () => resolve(true)
         );
@@ -1008,241 +1010,111 @@ class Dialer extends React.Component {
       callDetails,
       syncCallLogconnectionProps,
       deviceId,
-      numbersInCalls
+      numbersInCalls,
     } = this.state;
-    const { user, showCallListContainer, handleDialer, shouldDisplayRedDot } =
-      this.props;
+    const {
+      user,
+      showCallListContainer,
+      handleDialer,
+      shouldDisplayRedDot,
+      setAllUnreadCounts,
+    } = this.props;
+    console.log(menuItem);
     return (
       showCallListContainer && (
-        <View>
-          <View>
-            <View>
-              <View>
-                <Column>
-                  {Object.values(callDetails).length > 0 && (
-                    <Row key='0'
-                      onPress={() => this.alterMenu(2)}
-                    // className={`${menuItem === 2 && "active"} `}
-                    >
-                      <Column
-                        style={{
-                          alignSelf: 'flex-start',
-                          justifyContent: 'flex-start',
-                          marginRight: 12,
-                          transform: [{ scale: 2.5 }],
-                        }}>
-                        <Text
-                          style={{
-                            alignSelf: 'flex-start',
-                            justifyContent: 'flex-start',
-                          }}>
-                          {'\u2022'}
-                          {/* {`${REACT_APP_STATIC_ASSETS_BASE_URL}${leftsidecallicon}`} */}
-                        </Text>
-                      </Column>
-                      <Column>
-                        <Text>{'leftsidecallicon'}</Text>
-                      </Column>
-                    </Row>
-                  )}
-                  <Row key='1'
-                    className={`${menuItem === 4 && "active"} `}
-                    onPress={() => this.alterMenu(4)}
-                  >
-                    <Column
-                      style={{
-                        alignSelf: 'flex-start',
-                        justifyContent: 'flex-start',
-                        marginRight: 12,
-                        transform: [{ scale: 2.5 }],
-                      }}>
-                      <Text
-                        style={{
-                          alignSelf: 'flex-start',
-                          justifyContent: 'flex-start',
-                        }}>
-                        {'\u2022'}
-                        {/* {`${REACT_APP_STATIC_ASSETS_BASE_URL}${leftsidecallicon}`} */}
-                      </Text>
-                    </Column>
-                    <Column>
-                      <Text>{'leftsidecontacticon'}</Text>
-                      {/* {shouldDisplayRedDot.callLogs && (
-                      <span className="notificationdot "></span>
-                       )} */}
-                    </Column>
-                  </Row>
-                  <Row key='2'
-                    // className={`${menuItem === 3 && "active"} `}
-                    onPress={() => this.alterMenu(3)}
-                  >
-                    <Column
-                      style={{
-                        alignSelf: 'flex-start',
-                        justifyContent: 'flex-start',
-                        marginRight: 12,
-                        transform: [{ scale: 2.5 }],
-                      }}>
-                      <Text
-                        style={{
-                          alignSelf: 'flex-start',
-                          justifyContent: 'flex-start',
-                        }}>
-                        {'\u2022'}
-                        {/* {`${REACT_APP_STATIC_ASSETS_BASE_URL}${leftsidecallicon}`} */}
-                      </Text>
-                    </Column>
-                    <Column>
-                      <Text>{'leftsideconversationicon'}</Text>
-                      {/* {shouldDisplayRedDot.messages && (
-                      <span className="notificationdot "></span>
-                       )} */}
-                    </Column>
-                  </Row>
-                  <Row key='3'
-                    // className={`${menuItem === 1 && "active"} `}
-                    onPress={() => this.alterMenu(1)}
-                  >
-                    <Column
-                      style={{
-                        alignSelf: 'flex-start',
-                        justifyContent: 'flex-start',
-                        marginRight: 12,
-                        transform: [{ scale: 2.5 }],
-                      }}>
-                      <Text
-                        style={{
-                          alignSelf: 'flex-start',
-                          justifyContent: 'flex-start',
-                        }}>
-                        {'\u2022'}
-                        {/* {`${REACT_APP_STATIC_ASSETS_BASE_URL}${leftsidecallicon}`} */}
-                      </Text>
-                    </Column>
-                    <Column>
-                      <Text>{'leftsidecontacticon'}</Text>
-                    </Column>
-                  </Row>
-                  <Row key='4'
-                    // className={`${menuItem === 5 && "active"} `}
-                    onPress={() => this.alterMenu(5)}
-                  >
-                    <Column
-                      style={{
-                        alignSelf: 'flex-start',
-                        justifyContent: 'flex-start',
-                        marginRight: 12,
-                        transform: [{ scale: 2.5 }],
-                      }}>
-                      <Text
-                        style={{
-                          alignSelf: 'flex-start',
-                          justifyContent: 'flex-start',
-                        }}>
-                        {'\u2022'}
-                        {/* {`${REACT_APP_STATIC_ASSETS_BASE_URL}${leftsidecallicon}`} */}
-                      </Text>
-                    </Column>
-                    <Column>
-                      <Text>{'callfarwardicon'}</Text>
-                    </Column>
-                  </Row>
-                </Column>
-              </View>
-              <View>
-                {menuItem === 1 && (
-                  <ContactList
-                    makeOutBoundCall={this.makeOutBoundCall}
-                    currentConnection={currentConnection}
-                    handleDialer={handleDialer}
-                    activeCallCount={activeCallCount}
-                    user={user}
-                    actionType={actionType}
-                    numbersInCalls={numbersInCalls}
-                  />
-                )}
-                {menuItem === 2 && (
-                  <View>
-                    <View className="closepopup">
-                      <View
-                        className="popupboxclose"
-                        onClick={() => handleDialer()}
-                      >
-                        <Text>&#x00d7;</Text>
-                      </View>
-                    </View>
-                    {twilioSyncList !== null && (
-                      <CallListContainer
-                        twilioSyncList={twilioSyncList}
-                        from_={user.number}
-                        user={user}
-                        currentConnection={currentConnection}
-                        alterMenu={this.alterMenu}
-                        acceptCall={this.acceptCall}
-                        rejectCall={this.rejectCall}
-                        setOngoingCallsCount={this.setOngoingCallsCount}
-                        handleDialer={handleDialer}
-                        activeCallCount={activeCallCount}
-                        alterButtonDiableProperty={
-                          this.alterButtonDiableProperty
-                        }
-                        shouldDisableButton={shouldDisableButton}
-                        createSyncList={this.createSyncList}
-                        menuItem={menuItem}
-                        deviceId={deviceId}
-                      />
-                    )}
-                  </View>
-                )}
-                {menuItem === 3 && (
-                  <ChatButton
-                    conversation={conversation}
-                    user={user}
-                    alterMenu={this.alterMenu}
-                    existingConversationId={existingConversationId}
-                    handleDialer={handleDialer}
-                    alterButtonDiableProperty={this.alterButtonDiableProperty}
-                    activeCallCount={activeCallCount}
-                  />
-                )}
-                {menuItem === 4 && (
-                  <CallLogs
-                    handleDialer={handleDialer}
-                    callLogDetails={callLogDetails}
-                    alterButtonDiableProperty={this.alterButtonDiableProperty}
-                    shouldDisableButton={shouldDisableButton}
-                    activeCallCount={activeCallCount}
-                    syncCallLogconnectionProps={syncCallLogconnectionProps}
-                    markCallLogAsRead={this.markCallLogAsRead}
-                    numbersInCalls={numbersInCalls}
-                  />
-                )}
-                {menuItem === 5 && (
-                  <CallForwarding
-                    handleDialer={handleDialer}
-                    callLogDetails={callforwarding}
-                    user={user}
-                  />
-                )}
-              </View>
-            </View>
-          </View>
-        </View >
+		<View>
+		{menuItem === 1 && (
+		  <ContactList
+			makeOutBoundCall={this.makeOutBoundCall}
+			currentConnection={currentConnection}
+			handleDialer={handleDialer}
+			activeCallCount={activeCallCount}
+			user={user}
+			actionType={actionType}
+			numbersInCalls={numbersInCalls}
+			setAllUnreadCounts={setAllUnreadCounts}
+		  />
+		)}
+		{menuItem === 2 && (
+		  <View>
+			<View className="closepopup">
+			  <View
+				className="popupboxclose"
+				onClick={() => handleDialer()}
+			  >
+				<Text>&#x00d7;</Text>
+			  </View>
+			</View>
+			{twilioSyncList !== null && (
+			  <CallListContainer
+				twilioSyncList={twilioSyncList}
+				from_={user.number}
+				user={user}
+				currentConnection={currentConnection}
+				alterMenu={this.alterMenu}
+				acceptCall={this.acceptCall}
+				rejectCall={this.rejectCall}
+				setOngoingCallsCount={this.setOngoingCallsCount}
+				handleDialer={handleDialer}
+				activeCallCount={activeCallCount}
+				alterButtonDiableProperty={this.alterButtonDiableProperty}
+				shouldDisableButton={shouldDisableButton}
+				createSyncList={this.createSyncList}
+				menuItem={menuItem}
+				deviceId={deviceId}
+			  />
+			)}
+		  </View>
+		)}
+		{menuItem === 3 && (
+		  <ChatButton
+			conversation={conversation}
+			user={user}
+			alterMenu={this.alterMenu}
+			existingConversationId={existingConversationId}
+			handleDialer={handleDialer}
+			alterButtonDiableProperty={this.alterButtonDiableProperty}
+			activeCallCount={activeCallCount}
+		  />
+		)}
+		{menuItem === 4 && (
+		  <CallLogs
+			handleDialer={handleDialer}
+			callLogDetails={callLogDetails}
+			alterButtonDiableProperty={this.alterButtonDiableProperty}
+			shouldDisableButton={shouldDisableButton}
+			activeCallCount={activeCallCount}
+			syncCallLogconnectionProps={syncCallLogconnectionProps}
+			markCallLogAsRead={this.markCallLogAsRead}
+			numbersInCalls={numbersInCalls}
+		  />
+		)}
+		{menuItem === 5 && (
+		  <CallForwarding
+			handleDialer={handleDialer}
+			callLogDetails={callforwarding}
+			user={user}
+		  />
+		)}
+	  </View>
+       
       )
     );
   }
 }
 const Column = ({ children, style }) => {
-  return <View
-    style={[{ display: 'flex', flexDirection: 'column' }, style]}>
-    {children}
-  </View>
-}
+  return (
+    <View style={[{ display: "flex", flexDirection: "column" }, style]}>
+      {children}
+    </View>
+  );
+};
 
 const Row = ({ children, style }) => {
-  return <View
-    style={[{ display: 'flex', flexDirection: 'row' }, style]}>
-    {children}
-  </View>
-}
+  return (
+    <View style={[{ display: "flex", flexDirection: "row" }, style]}>
+      {children}
+    </View>
+  );
+};
 export default Dialer;

@@ -187,23 +187,25 @@ class ConversationDetails extends React.Component {
                 )
               }
               disabled={activeCallCount > 0}
+              title=""
             >
-              <Image alt="" source={`${REACT_APP_STATIC_ASSETS_BASE_URL}${chatcallicon}`} />
+              <Image alt="" source={'https://painterbros-stage.regalixtools.com/static/media/chatcallicon.337cab336c1282e1e1ddadd47635ed12.svg'} />
             </Button>
           </View>
           <View className="contactuslist">
             <Button
               className="removecolorbut chatboxarrow"
               onPress={() => setConversationMessages(currentConversation, true)}
+              title=""
             >
-              <Image alt="" source={`${REACT_APP_STATIC_ASSETS_BASE_URL}${leftarrow}`} />
+              <Image alt="" source={'https://painterbros-stage.regalixtools.com/static/…ia/leftarrow.cf980b44cc146f6c0f1e5a1e9f9a871a.svg'} />
               <View className="firsttext">
                 <View className="Nameletters">
                   <Text>{this.setUserMessagesAsRead(currentConversation)}</Text>
                 </View>
               </View>
               <View className="phonebooknum">
-                <h4
+                <Text
                   data-bs-toggle="tooltip"
                   data-bs-placement="bottom"
                   title={
@@ -215,7 +217,7 @@ class ConversationDetails extends React.Component {
                     getGroupUsersName(currentConversation.participants, user)
                       .name
                   }
-                </h4>
+                </Text>
                 <Text>
                   {
                     getGroupUsersName(currentConversation.participants, user)
@@ -231,7 +233,7 @@ class ConversationDetails extends React.Component {
           {Object.values(groupConversations).map((messageItems, index) => {
             return (
               <View className="dateGroup" key={messageItems.date}>
-                <p className="todaydate">{messageItems.date}</p>
+                <Text className="todaydate">{messageItems.date}</Text>
                 {messageItems.items.map((msgs, index) => {
                   return (
                     <View
@@ -326,6 +328,7 @@ class ConversationDetails extends React.Component {
               className="removecolorbut chatsendicon"
               onPress={() => this.sendMessage(currentConversation)}
               disabled={messageText === ""}
+              title=""
             >
               <Image alt="" source={`${REACT_APP_STATIC_ASSETS_BASE_URL}${chatsendicon}`} />
             </Button>

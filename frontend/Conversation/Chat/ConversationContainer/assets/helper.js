@@ -6,7 +6,7 @@ const { REACT_APP_API_BASE_URL } = process.env;
 const requestHeader = (apiEndPoint, method, formData = {}) => {
   var config = {
     method: method,
-    url: `${REACT_APP_API_BASE_URL}${apiEndPoint}`,
+    url: `${'https://painterbros-stage.regalixtools.com/a/api'}${apiEndPoint}`,
     headers: {
       "Content-Type": "application/json"
     },
@@ -28,6 +28,7 @@ export const getAllSubscribedConversations = async (
       address
     }
   );
+  console.log(config);
   return axios(config);
 };
 
@@ -63,7 +64,7 @@ export const sanitizeConversationStructure = (
         user
       );
       if (unreadMessageCount > 0) {
-        window.setAllUnreadCounts("messages", true);
+        // window.setAllUnreadCounts("messages", true);
       }
 
       sanitizeStructure = { ...sanitizeStructure, ...sanitizeObject };

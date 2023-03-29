@@ -1,10 +1,11 @@
 import React from "react";
-import { Button, View, Image, Text } from "react-native";
+import { Button, View, Image, Text,Picker } from "react-native";
 import { updatePreferences, getPreferences } from "../assets/library/api";
 import { searchPeople } from "../CallListContainer/assets/library/api";
 import loadingGif from "../../CallButton/assets/images/loading-gif.gif";
 import deleteicon from "../CallListContainer/assets/images/deleteicon.svg";
 const { REACT_APP_STATIC_ASSETS_BASE_URL } = process.env;
+import Icon from "react-native-vector-icons/FontAwesome5";
 
 class CallForwarding extends React.Component {
   constructor(props) {
@@ -196,10 +197,10 @@ class CallForwarding extends React.Component {
       <View className="secondaryParticipant">
         <View className="mainboxheader">
           <View className="popupboxclose" onClick={() => handleDialer()}>
-            <span>&#x00d7;</span>
+            <Text>&#x00d7;</Text>
           </View>
           <View className="contactuslist">
-            <h4>Preferences</h4>
+            <Text>Preferences</Text>
           </View>
         </View>
         <View className="preferencessec">
@@ -207,14 +208,14 @@ class CallForwarding extends React.Component {
             <View className="loadingicon">
               <Image
                 alt="Loading"
-                source={`${REACT_APP_STATIC_ASSETS_BASE_URL}${loadingGif}`}
+                source={'https://painterbros-stage.regalixtools.com/CallButton/assets/images/loading-gif.gif'}
               />
             </View>
           )}
           <View className="callforwardcont">
             {!isApiFetching && (
               <View className="callforwardsec">
-                <h4> Call Forwarding</h4>
+                <Text> Call Forwarding</Text>
                 <View className="tablesec">
                   {forwardedDetails.map((element, index) => {
                     return (
@@ -226,22 +227,30 @@ class CallForwarding extends React.Component {
                           <View className="mainname">{element.name}</View>
                           <View className="mainnumber">{element.number}</View>
                           <View className="mainnumber">
-                            Ring for {element.duration} Seconds
+                            <Text>Ring for {element.duration} Seconds</Text>
                           </View>
                         </View>
                         <View className="phonebookicon">
                           {
-                            <button
-                              className="removecolorbut forwardbut"
-                              onClick={() =>
-                                this.removeCallForwardingRules(index)
-                              }
-                              disabled={isApiFetching || !shouldDisplayTable}
+                            // <Button
+                            //   className="removecolorbut forwardbut"
+                            //   onClick={() =>
+                            //     this.removeCallForwardingRules(index)
+                            //   }
+                            //   disabled={isApiFetching || !shouldDisplayTable}
+                              
+                            // >
+                            //   <Image
+                            //     source={`${REACT_APP_STATIC_ASSETS_BASE_URL}${deleteicon}`}
+                            //   />
+                            // </Button>
+                            <Icon onClick={() =>
+                                  this.removeCallForwardingRules(index)
+                                } 
+                                name={"trash"} 
+                                disabled={isApiFetching || !shouldDisplayTable}
                             >
-                              <Image
-                                source={`${REACT_APP_STATIC_ASSETS_BASE_URL}${deleteicon}`}
-                              />
-                            </button>
+                            </Icon>
                           }
                         </View>
                       </View>
@@ -249,13 +258,13 @@ class CallForwarding extends React.Component {
                   })}
                 </View>
                 {shouldDisplayTable && (
-                  <button
+                  <Button
                     className="forwardbut"
                     onClick={() => this.alterDisplay()}
                     disabled={isApiFetching}
                     title="Add New"
                   >
-                  </button>
+                  </Button>
                 )}
               </View>
             )}
@@ -263,7 +272,7 @@ class CallForwarding extends React.Component {
             {!isApiFetching && !shouldDisplayTable && (
               <View className="callforwardsec">
                 <View className="selectboxsec">
-                  <h3>To:</h3>
+                  <Text>To:</Text>
                   <Text
                     id="basic-example"
                     onChange={(e) => this.setSelected(e)}
@@ -273,7 +282,7 @@ class CallForwarding extends React.Component {
                   ></Text>
                   {numberValidated.status && (
                     <View>
-                      <span>{numberValidated.errorMessage}</span>
+                      <Text>{numberValidated.errorMessage}</Text>
                     </View>
                   )}
 
@@ -281,16 +290,16 @@ class CallForwarding extends React.Component {
                     <View>
                       <Image
                         alt="Loading"
-                        source={`${REACT_APP_STATIC_ASSETS_BASE_URL}${loadingGif}`}
+                        source={'https://painterbros-stage.regalixtools.com/CallButton/assets/images/loading-gif.gif'}
                         srcset="Loading"
                       />
                     </View>
                   )}
 
                   <View className="selectboxsec">
-                    <h3>Ring For:</h3>
+                    <Text>Ring For:</Text>
                     <View className="selecrbox">
-                      <select
+                      {/* <select
                         id="duration"
                         name="duration"
                         onChange={(e) => this.setForwardingObj(e)}
@@ -302,19 +311,30 @@ class CallForwarding extends React.Component {
                         <option value="60">12 Rings (60 Seconds)</option>
                         <option value="90">15 Rings (90 Seconds)</option>
                         <option value="120">24 Rings (120 Seconds)</option>
-                      </select>
+                      </select> */}
+                      <Picker
+                        selectedValue={orwardingObj.duration}
+                        onValueChange={(e) => this.setForwardingObj(e)}
+                      >
+                        <Picker.Item label="3 Rings (15 Seconds)" value="15" />
+                        <Picker.Item label="6 Rings (30 Seconds)" value="30" />
+                        <Picker.Item label="9 Rings (45 Seconds)" value="45" />
+                        <Picker.Item label="12 Rings (60 Seconds)" value="60" />
+                        <Picker.Item label="15 Rings (90 Seconds)" value="90" />
+                        <Picker.Item label="24 Rings (120 Seconds)" value="120" />
+                      </Picker>
                     </View>
                   </View>
                 </View>
 
-                <button
+                <Button
                   className="forwardbut"
                   onClick={() => this.setForwardedDetailsToState()}
                   disabled={isApiFetching}
                 >
                   Done
-                </button>
-                <button
+                </Button>
+                <Button
                   className="forwardbut"
                   onClick={() =>
                     this.setState({ ...this.state, shouldDisplayTable: true })
@@ -322,17 +342,17 @@ class CallForwarding extends React.Component {
                   disabled={isApiFetching}
                   title="Cancel"
                 >
-                </button>
+                </Button>
               </View>
             )}
           </View>
           <View className="bottomfixbut">
-            <button
+            <Button
               className="allsave forwardbut"
               onClick={() => this.saveCallForwardingRules()}
+              title="Save Preferences"
             >
-              Save Preferences
-            </button>
+            </Button>
           </View>
         </View>
       </View>

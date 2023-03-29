@@ -22,7 +22,9 @@
     "twilio-sync": "^3.2.2",
     "util": "^0.12.5",
     "uuid": "^9.0.0",
-    "xmlhttprequest": "^1.8.0"
+    "xmlhttprequest": "^1.8.0",
+    "react-native-vector-icons": "^7.1.0",
+    "native-base": "^2.15.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

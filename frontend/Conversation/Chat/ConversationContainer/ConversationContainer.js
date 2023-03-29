@@ -1,6 +1,7 @@
 import React from "react";
 import moment from "moment";
 import ConversationDetails from "./ConversationDetails";
+import { Button, View, Image, Text } from "react-native";
 import {
   displayContactInitial,
   getGroupUsersName,
@@ -74,16 +75,16 @@ class ConversationContainer extends React.Component {
     const { user } = this.props;
     let currentParticipant = getGroupUsersName(conversation.participants, user);
     return (
-      <div
+      <View
         className={`phonebookbox ${
           checkforUnreadMesage(conversation, user) > 0
             ? "unreadConversation"
             : "allReadConversation"
         }`}
       >
-        <div className="firsttext">
-          <div className="Nameletters">
-            <span>
+        <View className="firsttext">
+          <View className="Nameletters">
+            <Text>
               {currentParticipant.name === currentParticipant.number ? (
                 <img
                   alt=""
@@ -92,25 +93,25 @@ class ConversationContainer extends React.Component {
               ) : (
                 displayContactInitial(currentParticipant.name)
               )}
-            </span>
+            </Text>
             {checkforUnreadMesage(conversation, user) > 0 && (
-              <span className="notificationdot "></span>
+              <Text className="notificationdot "></Text>
             )}
-          </div>
-        </div>
-        <div className="phonebooknum">
-          <span
+          </View>
+        </View>
+        <View className="phonebooknum">
+          <Text
             data-bs-toggle="tooltip"
             data-bs-placement="bottom"
             title={getGroupUsersName(conversation.participants, user).name}
           >
             {getGroupUsersName(conversation.participants, user).name}
-          </span>
+          </Text>
           {conversation.last_message.body && (
-            <span>{conversation.last_message.body}</span>
+            <Text>{conversation.last_message.body}</Text>
           )}
-        </div>
-        <div className="phonebookicon">
+        </View>
+        <View className="phonebookicon">
           <p className="chattimestamp">
             {moment().diff(
               moment
@@ -129,12 +130,12 @@ class ConversationContainer extends React.Component {
                   .format("h:mm A")}
           </p>
           {checkforUnreadMesage(conversation, user) > 0 && (
-            <div className="chatstatuspoint active">
+            <View className="chatstatuspoint active">
               {checkforUnreadMesage(conversation, user)}
-            </div>
+            </View>
           )}
-        </div>
-      </div>
+        </View>
+      </View>
     );
   };
 
@@ -184,19 +185,19 @@ class ConversationContainer extends React.Component {
     const { conversations, user, alterButtonDiableProperty, activeCallCount } =
       this.props;
     const { currentConversation } = this.state;
+    console.log(currentConversation,conversations);
     return (
-      <div className="conversationContainer chartboxsec">
+      <View>
         {currentConversation === null && (
-          <div className="col-md-12">
-            <div className="col-md-12 chartboxlist">
-              <div className="phonebooklist">
+         
+              <View className="phonebooklist">
                 {this.sortConversationBasedOnLastMessageDate().map(
                   (conversation, index) => {
                     return (
                       conversations[conversation.twilio_sid].messages &&
                       conversations[conversation.twilio_sid].messages.length >
                         0 && (
-                        <div
+                        <View
                           key={index}
                           onClick={() =>
                             this.setConversationMessages(
@@ -205,20 +206,20 @@ class ConversationContainer extends React.Component {
                             )
                           }
                         >
+                          
                           {this.displayParticipantName(
                             conversations[conversation.twilio_sid]
                           )}
-                        </div>
+                          
+                        </View>
                       )
                     );
                   }
                 )}
-              </div>
-            </div>
-          </div>
+              </View>
         )}
         {currentConversation !== null && (
-          <div className="col-md-12">
+          <View className="col-md-12">
             <ConversationDetails
               currentConversation={currentConversation}
               user={user}
@@ -226,9 +227,10 @@ class ConversationContainer extends React.Component {
               alterButtonDiableProperty={alterButtonDiableProperty}
               activeCallCount={activeCallCount}
             />
-          </div>
+          </View>
         )}
-      </div>
+      </View>
+      
     );
   }
 }
